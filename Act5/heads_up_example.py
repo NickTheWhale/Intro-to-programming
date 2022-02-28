@@ -31,7 +31,7 @@ def main():
         print("incorrect guess ")
         guess = input("what is your guess? ")
 
-    print("goodest job")
+    print("good job")
 
 
 if __name__ == '__main__':
