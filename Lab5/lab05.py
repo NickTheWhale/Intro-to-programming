@@ -135,11 +135,11 @@ def main():
     #        message for the blood pressure stage.
     if week_average == 0.0:
         print("Unknown.")
-    elif week_average < 120:
+    elif week_average < _PREHYPERTENSION:
         print("Normal.")
-    elif (week_average >= 120) and (week_average < 140):
+    elif (week_average >= _PREHYPERTENSION) and (week_average < _HYPERTENSION):
         print("Prehypertension.")
-    elif (week_average >= 140) and (week_average < 180):
+    elif (week_average >= _PREHYPERTENSION) and (week_average < _CRISIS):
         print("Hypertension.")
     else:
         print("Hypertensive Crisis!")
