@@ -107,7 +107,7 @@ def main():
         # DO_8: Compute the average reading day_average
         #       only if the number of readings
         #       is NOT zero.
-        if num_readings != 0:
+        if num_readings > 0:
             day_average = day_sum / num_readings
         else:
             day_average = 0
@@ -123,7 +123,7 @@ def main():
 
     # DO_10: Compute the average reading of a week  week_readings
     #        only if the number of readings in a week is NOT zero.
-    if week_readings != 0:
+    if week_readings > 0:
         week_average = week_sum / week_readings
     else:
         week_readings = 0
