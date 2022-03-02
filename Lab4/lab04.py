@@ -1,8 +1,8 @@
 """
 # DO_01: Fill in your name and section number below.
-Name:       <Insert name here>
+Name:       Nicholas Loehrke
 
-Course:     CS1430, Section <Insert section here>,  Spring 2022
+Course:     CS1430, Section 02,  Spring 2022
 
 Assignment: Lab 4
 
@@ -53,6 +53,8 @@ _EXIT = 'X'    # Exit flag, Sentinel
 
 _VALUE_OF_GOLD_CHIP = 1000
 _VALUE_OF_SILVER_CHIP = 100
+_VALUE_OF_RED_CHIP = 50
+_VALUE_OF_BLUE_CHIP = 10
 
 # DO_02: Define two integers constants
 #     _VALUE_OF_RED_CHIP for fifty
@@ -62,6 +64,7 @@ _VALUE_OF_SILVER_CHIP = 100
 _OUTPUT_MESSAGE_GOLDEN_CHIPS = "Golden chips = {:d}"
 _OUTPUT_MESSAGE_SILVER_CHIPS = "Silver chips = {:d}"
 _OUTPUT_MESSAGE_RED_CHIPS = "Red chips = {:d}"
+_OUTPUT_MESSAGE_BLUE_CHIPS = "Blue chips = {:d}"
 
 # DO_03: Write the output string for the blue chip count. {d} is for an int.
 
@@ -89,7 +92,7 @@ def main():
     chip = input() # Read in the first chip
 
     # DO_04: Fill in the condition in while-loop to test when to exit the loop.
-    while _____________________:
+    while chip != 'X':
         if chip == _GOLD:
             gold_chips += 1
         elif chip == _SILVER:
@@ -97,29 +100,30 @@ def main():
         elif chip == _RED:
             red_chips += 1
         else: # it is blue
+            blue_chips += 1
+        chip = input()
             # DO_05: Count here the chip type that has not been counted so far.
-
-
-        # DO_06: Read the next chip from the input.
-
-
-    # end while sorting and counting chips
-
-    #----------------------------
-    # Output the chip counts
-    #----------------------------
-
-    print()
+            # DO_06: Read the next chip from the input.
+            # end while sorting and counting chips
+            #----------------------------
+            # Output the chip counts
+            #----------------------------
 
     print(_OUTPUT_MESSAGE_GOLDEN_CHIPS.format(gold_chips))
     print(_OUTPUT_MESSAGE_SILVER_CHIPS.format(silver_chips))
     print(_OUTPUT_MESSAGE_RED_CHIPS.format(red_chips))
+    print(_OUTPUT_MESSAGE_BLUE_CHIPS.format(blue_chips))
     # DO_07: Print the blue chip count.
 
 
     # DO_08: Calculate and print the cash-out amount.
 
+    total = gold_chips * _VALUE_OF_GOLD_CHIP
+    total += silver_chips * _VALUE_OF_SILVER_CHIP
+    total += red_chips * _VALUE_OF_RED_CHIP
+    total += blue_chips * _VALUE_OF_BLUE_CHIP
 
+    print(_OUTPUT_MESSAGE_CASH_OUT.format(total))
 
 
 """
