@@ -48,9 +48,11 @@ Output:     For each day of the readings processed, display the
 ------------------------------------------------------------------------
 """
 
+# constants
 _PREHYPERTENSION = 120.0
 _HYPERTENSION = 140.0
 _CRISIS = 180.0
+
 
 def main():
     """
@@ -72,54 +74,59 @@ def main():
     # DO_2: Priming read; the first data item is the number of readings
     #       in a day. Do not convert it to an int data type.
 
-
+    num_readings = input()
     # DO_3: Check if end-of-file has been reached.
-    while                     :
+    # stop when num_readings is empty
+    while num_readings != "":
         num_readings = int(num_readings)
         # DO_4: Set the day_sum of readings and the highest reading of
         #       a day to zero.
+        day_sum = 0
+        highest = 0
         count_readings = 0
-
 
         # DO_5: Write the logical expression for the count-controlled loop.
         #       Use the count_readings to control the iterations.
-        while                 :
+        while count_readings < num_readings:
             reading = int(input())
             if count_readings == 0: # set the first reading as the highest
                 highest = reading
             # DO_6: Write the logical expression to check if the reading is
             #       greater than the saved highest reading.
-            if                :
+            if reading > highest:
                 highest = reading
 
             day_sum += reading
             # DO_7: increase the loop counter count_reading by 1
-
+            count_readings += 1
 
         num_days += 1
         print(f"Day {num_days}")
         print(f"Highest Reading: {highest}")
 
-        # DO_8: Compute the average reading day_average only if the number of readings
+        # DO_8: Compute the average reading day_average
+        #       only if the number of readings
         #       is NOT zero.
-
-
+        if num_readings != 0:
+            day_average = day_sum / num_readings
+        else:
+            day_average = 0
 
         print(f"Average Reading: {day_average:.2f}")
 
         week_sum += day_sum
         week_readings += num_readings
         # DO_9: Read the next number of readings of a day.
-
-
+        num_readings = input()
 
     print(f"Number of days the readings were recorded: {num_days}")
 
     # DO_10: Compute the average reading of a week  week_readings
     #        only if the number of readings in a week is NOT zero.
-
-
-
+    if week_readings != 0:
+        week_average = week_sum / week_readings
+    else:
+        week_readings = 0
 
     print(f"Average Reading of the Week: {week_average:.2f}")
     print("Blood Pressure Stage: ", end="")
@@ -128,11 +135,14 @@ def main():
     #        message for the blood pressure stage.
     if week_average == 0.0:
         print("Unknown.")
-
-
-   
-
-
+    elif week_average < 120:
+        print("Normal.")
+    elif (week_average >= 120) and (week_average < 140):
+        print("Prehypertension.")
+    elif (week_average >= 140) and (week_average < 180):
+        print("Hypertension.")
+    else:
+        print("Hypertensive Crisis!")
 
 
 if __name__ == "__main__":
