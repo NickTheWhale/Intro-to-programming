@@ -3,7 +3,7 @@ Name:       <Fill in your name>
 
 Course:     CS1430, Section <Insert section here>,  Spring 2022
 
-Assignment: Assignment 2
+Assignment: Assignment2
 
 Purpose:    
 
