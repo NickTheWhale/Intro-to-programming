@@ -5,7 +5,7 @@ Course:     CS1430, Section 02,  Spring 2022
 
 Assignment: Assignment2
 
-Purpose:    
+Purpose:    jhff
 
 Input:      
 
