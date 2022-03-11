@@ -17,7 +17,7 @@ Output:
 #CONSTANTS
 ##################################
 
-
+import math
 
 def main():
     """
@@ -30,26 +30,45 @@ def main():
     # constants
 
     # x, y = input("Input x and y: ").split()
-    '''
-    num_of_routes = int(input("Input num of routes: "))
-    x_list = [None] * num_of_routes
-    y_list = [None] * num_of_routes
-    x, y = input("Input x and y: ").split()
-    for i in range(num_of_routes):
-        print(i)
-        x_list[i], y_list[i] = input("Input x and y: ").split()
 
-    print(x_list)
-    print(y_list)
-    '''
-    total_routes_raw = input("Input total number of routes: ")
-    while total_routes_raw != "":
-        total_routes = int(total_routes_raw)
-        route_count = 0
-        distance = 0
-        total_distance = 0
-        while route_count < total_routes:
+    x_total = 0
+    y_total = 0
+    x_prev = 0
+    y_prev = 0
+    prev_route_dist = 0
+    short_dist = 0
+    long_dist = 0
+    ave_distance = 0
+    route_dist = 0
+    total_dist = 0
+
+    num_of_routes_raw = input("Num of routes: ")
+    while num_of_routes_raw != "":
+        num_of_routes = int(num_of_routes_raw)
+        for i in range(num_of_routes):
             x, y = input("Input x and y: ").split()
+            x = int(x)
+            y = int(y)
+            x_total += x
+            y_total += y
+            route_dist = math.sqrt((x*x)+(y*y))
+            total_dist += route_dist
+            if route_dist > prev_route_dist:
+                long_dist = route_dist
+            if i > 0:
+                if route_dist < prev_route_dist:
+                    short_dist = route_dist
+            else:
+
+
+            prev_route_dist = route_dist
+            print("route distance: ", route_dist)
+        num_of_routes_raw = input("Num of routes: ")
+
+    print("shortest distance: ", short_dist)
+    print("longest distance: ", long_dist)
+
+
 
 
 #Do not remove the code below this line!
