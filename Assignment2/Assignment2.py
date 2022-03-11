@@ -29,44 +29,73 @@ def main():
 
     # constants
 
-    # x, y = input("Input x and y: ").split()
-
-    x_total = 0
-    y_total = 0
-    x_prev = 0
-    y_prev = 0
-    prev_route_dist = 0
-    short_dist = 0
-    long_dist = 0
-    ave_distance = 0
-    route_dist = 0
     total_dist = 0
+    route_count = 0
+    total_routes = 0
+    total_short_dist = 0
+    total_long_dist = 0
+    short_route = 0
+    long_route = 0
+    short_flag = True
+    long_flag = True
 
     num_of_routes_raw = input("Num of routes: ")
     while num_of_routes_raw != "":
+        x_prev = 0
+        y_prev = 0
+        short_dist = 0
+        long_dist = 0
+        total_route_dist = 0
         num_of_routes = int(num_of_routes_raw)
+        total_routes += num_of_routes
         for i in range(num_of_routes):
             x, y = input("Input x and y: ").split()
             x = int(x)
             y = int(y)
-            x_total += x
-            y_total += y
-            route_dist = math.sqrt((x*x)+(y*y))
+            route_dist = abs(x_prev - x) + abs(y_prev - y)
+            total_route_dist += route_dist
             total_dist += route_dist
-            if route_dist > prev_route_dist:
+            if route_dist > long_dist:
                 long_dist = route_dist
             if i > 0:
-                if route_dist < prev_route_dist:
+                if route_dist < short_dist:
                     short_dist = route_dist
             else:
+                short_dist = route_dist
+            x_prev = x
+            y_prev = y
+        route_count += 1
+        avg_distance = total_route_dist / num_of_routes
+        if short_flag:
+            short_route = route_count
+            total_short_dist = total_route_dist
+            short_flag = False
+        else:
+            if short_dist < total_short_dist:
+                short_route = route_count
+                total_short_dist = total_route_dist
+        if long_flag:
+            long_route = route_count
+            total_long_dist = total_route_dist
+            long_flag = False
+        else:
+            if long_dist > total_long_dist:
+                long_route = route_count
+                total_long_dist = total_route_dist
 
-
-            prev_route_dist = route_dist
-            print("route distance: ", route_dist)
+        print(f'**Statistics for route #{route_count}**')
+        print(f'Shortest distance between deliveries: {short_dist}')
+        print(f'Longest distance between deliveries: {long_dist}')
+        print(f'Distance traveled: {total_route_dist}')
+        print(f'Average distance between deliveries: {avg_distance:.2f}')
         num_of_routes_raw = input("Num of routes: ")
 
-    print("shortest distance: ", short_dist)
-    print("longest distance: ", long_dist)
+    print(f'Total number of delivery routes: {route_count}')
+    print(f'Total number of deliveries: {total_routes}')
+    print(f'Total distance traveled: {total_dist}')
+
+    print(f'Route #{short_route} has the shortest travel distance: {total_short_dist}')
+    print(f'Route #{long_route} has the longest travel distance: {total_long_dist}')
 
 
 
