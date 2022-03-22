@@ -1,7 +1,7 @@
 """
-Name: <Fill in your name>
+Name: Nicholas Loehrke
 
-Course: CS1430, Section <Insert section here>,  Spring 2022
+Course: CS1430, Section 02,  Spring 2022
 
 Assignment: Assignment 3
 
