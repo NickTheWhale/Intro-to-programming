@@ -1,6 +1,6 @@
 """
-Name:           <Fill in your name>
-Course:         CS1430, Section <Insert section here>,  Spring 2022
+Name:           Nicholas Loehrke
+Course:         CS1430, Section 02,  Spring 2022
 Assignment:     Lab 06
 Purpose:        Simple functions and string manipulation.
 Description:    In this lab you will create a program that will map a telephone
