@@ -1,13 +1,7 @@
-def main():
-    """
-    Learn about loops
-    :return:
-    """
-    pass
+print("hello")
+for x in range(65, 91):
+    print(chr(x))
+print("goodbye.")
 
-
-
-
-
-if __name__ == main():
-    main()
+for x in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+    print(x)
