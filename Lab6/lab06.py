@@ -95,5 +95,5 @@ def getNumber(uppercase_letter):
     return number
    
 
-
-main()
+if __name__ == "__main__":
+    main()
