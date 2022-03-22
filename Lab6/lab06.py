@@ -50,7 +50,7 @@ def main():
         # Check if the character is alphabetic.
         if number[count].isalpha():
             # if so, call get_number and then print the number.
-            print(getNumber(number[count]), end='')
+            print(get_number(number[count]), end='')
         # else just print the number
         else:
             print(number[count], end='')
@@ -63,7 +63,7 @@ def main():
     # else just print the number
 
 
-def getNumber(uppercase_letter):
+def get_number(uppercase_letter):
     """
     The getNumber function takes the parameter uppercase_letter and translates
     it to it's corresponding phone number, returning that number.
