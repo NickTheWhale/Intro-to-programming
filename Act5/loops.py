@@ -1,7 +1,11 @@
-print("hello")
-for x in range(65, 91):
-    print(chr(x))
-print("goodbye.")
+def sum(number1, number2):
+    total = number1 + number2
+    return total
 
-for x in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
-    print(x)
+
+def main():
+    print(sum(1, 2))
+
+
+if __name__ == "__main__":
+    main()
