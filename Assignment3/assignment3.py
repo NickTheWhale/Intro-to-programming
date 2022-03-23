@@ -1,5 +1,5 @@
 """
-Name: Nicholas Loehrke
+Name: Dylan Brodie and Nick Loehrke
 
 Course: CS1430, Section 02,  Spring 2022
 
@@ -15,12 +15,11 @@ Purpose:    To write a Python solution that will encrypt and decrypt a message
                 c.	Add the ciphertext letter to the ciphertext message.
             3.	Return the resulting string as the ciphertext message.
 
-Input:
+Input: A message to encode/ a message to decode and what key word to use
 
-Output:  
+Output:  Either a decoded message or coded message using the inputted key
 
 """
-
 
 #########################
 # IMPORTS
@@ -48,8 +47,12 @@ def valid_phrase(message):
     alphabetic, and true otherwise.
     :rtype: string
     """
-    # TODO
-    pass
+    phrase = message.isalpha()
+    if phrase:
+        decider = True
+    else:
+        decider = False
+    return decider
 
 
 def letter_to_index(letter):
@@ -62,8 +65,8 @@ def letter_to_index(letter):
     :return: the index of the parameter in the alphabet string
     :rtype: string
     """
-    # TODO
-    pass
+    index = ord(letter) - 65
+    return index
 
 
 def index_to_letter(idx):
@@ -76,9 +79,8 @@ def index_to_letter(idx):
     :return: the letter from the alphabet at the index provided
     :rtype: string
     """
-    # TODO
-    pass
-
+    letter = chr(idx)
+    return letter
 
 
 def vigenere_index(key_letter, plain_text_letter):
@@ -95,9 +97,8 @@ def vigenere_index(key_letter, plain_text_letter):
     encrypted letter
     :rtype: string
     """
-    # TODO
-    pass
-        
+
+
 
 def undo_vig(key_letter, ct_letter):
     """
@@ -150,6 +151,7 @@ def encrypt_vigenere(key, plain_text):
     pass
 
 
+
 def get_message():
     """
     Prompts the user for the message to be encrypted.
@@ -159,20 +161,21 @@ def get_message():
     :return: the message to be encrypted
     :rtype: string
     """
-    # TODO
-    pass
-
+    message_to_encrypt = input("Enter the message to be encrypted: ")
+    message_to_encrypt = message_to_encrypt.upper()
+    return message_to_encrypt
 
 def get_cyphertext():
     """
     Prompts the user for the cipher text to decrypt. Returns
-    the cipher text to decrypt. Calls the.upper() function.
+    the cipher text to decrypt. Calls the .upper() function.
 
     :return: the cipher text to decrypt
     :rtype: string
     """
-    # TODO
-    pass
+    message_to_decrypt = input("Enter the cypher text to decrypt: ")
+    message_to_decrypt = message_to_decrypt.upper()
+    return message_to_decrypt
 
 
 def get_key():
@@ -183,8 +186,13 @@ def get_key():
     :return: the Vigenere key
     :rtype: string
     """
-    # TODO
-    pass
+    key_word = input("Enter the Vigenere key: ")
+    key_word = key_word.upper()
+    if key_word.isalpha():
+        return key_word
+    else:
+        print("Not a valid key. Letter must be in the alphabet.")
+        get_key()
 
 
 def get_choice():
@@ -196,24 +204,36 @@ def get_choice():
     :return: A string "E", "Q", or "D" representing the choice
     :rtype: string
     """
-    # TODO
-    pass
+    choice = input("Enter an E to encrypt a message, a D to decrypt a message, "
+                   "and Q to quit: ")
+    choice = choice.strip()
+    choice = choice.upper()
+    return choice
 
 
 def main():
     """
     A Python solution that will encrypt and decrypt a message
     using a Vigenère cipher.
-
     :return: none
     """
-    # TODO
-    pass
+    choice = get_choice()
+    if choice == 'E':
+        if valid_phrase(get_message()):
+
+        else:
+
+    elif choice == 'D':
+        if valid_phrase(get_cyphertext()):
+
+        else:
+
+    elif choice == 'Q':
+        pass
+    else:
+        print("Invalid response!")
+        main()
 
 
 if __name__ == '__main__':
     main()
-
-
-
-
