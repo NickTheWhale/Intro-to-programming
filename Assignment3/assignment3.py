@@ -65,7 +65,9 @@ def letter_to_index(letter):
     :return: the index of the parameter in the alphabet string
     :rtype: string
     """
-    index = ord(letter) - 65
+    letter = letter.upper()
+    index = ord(letter)
+    index -= 65  # convert ascii value to 0 index
     return index
 
 
@@ -79,6 +81,7 @@ def index_to_letter(idx):
     :return: the letter from the alphabet at the index provided
     :rtype: string
     """
+    idx += 65  # convert 0 index to ascii decimal value
     letter = chr(idx)
     return letter
 
@@ -217,7 +220,7 @@ def main():
     using a Vigenère cipher.
     :return: none
     """
-    choice = get_choice()
+    '''choice = get_choice()
     if choice == 'E':
         if valid_phrase(get_message()):
 
@@ -232,7 +235,16 @@ def main():
         pass
     else:
         print("Invalid response!")
-        main()
+        main()'''
+    while 1:
+        word = input("word: ")
+        key = input("key: ")
+        output_index = (letter_to_index(word) + letter_to_index(key) % 26)
+        if output_index > 25:
+            output_index -= 26
+        output_letter = index_to_letter(output_index)
+        print("index: ", output_index)
+        print("letter: ", output_letter)
 
 
 if __name__ == '__main__':
