@@ -168,6 +168,7 @@ def get_message():
     message_to_encrypt = message_to_encrypt.upper()
     return message_to_encrypt
 
+
 def get_cyphertext():
     """
     Prompts the user for the cipher text to decrypt. Returns
