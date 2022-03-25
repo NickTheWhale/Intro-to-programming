@@ -48,6 +48,7 @@ def valid_phrase(message):
     :rtype: string
     """
     phrase = message.isalpha()
+    phrase = message.replace(" ", "")
     if phrase:
         decider = True
     else:
@@ -100,6 +101,13 @@ def vigenere_index(key_letter, plain_text_letter):
     encrypted letter
     :rtype: string
     """
+    v_index = (letter_to_index(plain_text_letter)
+               + letter_to_index(key_letter)) % _LETTERS_IN_ALPHABET
+    if v_index >= _LETTERS_IN_ALPHABET:
+        v_index -= _LETTERS_IN_ALPHABET
+    v_letter = index_to_letter(v_index)
+    return v_letter
+
 
 
 
@@ -151,8 +159,19 @@ def encrypt_vigenere(key, plain_text):
     :rtype: string
     """
     # TODO
-    pass
-
+    encrypted_word = ''
+    j = 0
+    for i in range(len(plain_text)):
+        if i >= len(key):
+            j = 0
+        else:
+            j = i
+        if plain_text[i] == " ":
+            encrypted_word += " "
+        else:
+            encrypted_letter = vigenere_index(key[j], plain_text[i])
+            encrypted_word += encrypted_letter
+    return encrypted_word
 
 
 def get_message():
@@ -221,23 +240,33 @@ def main():
     using a Vigenère cipher.
     :return: none
     """
-    '''choice = get_choice()
-    if choice == 'E':
-        if valid_phrase(get_message()):
+    choice = get_choice()
+    while choice != 'Q':
+        if choice == 'E':
+            key = get_key()
+            message = get_message()
+            if valid_phrase(key):
+                if valid_phrase(message):
+                    print(encrypt_vigenere(key, message))
+                else:
+                    print("not a valid message ")
+            else:
+                print("Not a valid key! Letters must be in the alphabet.")
 
+        elif choice == 'D':
+            if valid_phrase(get_cyphertext()):
+                print("")
+            else:
+                print("")
+
+        elif choice == 'Q':
+            pass
         else:
+            print("Invalid response!")
+            main()
+        choice = get_choice()
 
-    elif choice == 'D':
-        if valid_phrase(get_cyphertext()):
-
-        else:
-
-    elif choice == 'Q':
-        pass
-    else:
-        print("Invalid response!")
-        main()'''
-    while 1:
+    '''while 1:
         word = input("word: ")
         key = input("key: ")
         output_index = (letter_to_index(word) + letter_to_index(key) % 26)
@@ -245,7 +274,7 @@ def main():
             output_index -= 26
         output_letter = index_to_letter(output_index)
         print("index: ", output_index)
-        print("letter: ", output_letter)
+        print("letter: ", output_letter)'''
 
 
 if __name__ == '__main__':
