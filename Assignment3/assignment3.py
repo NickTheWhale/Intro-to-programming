@@ -47,7 +47,7 @@ def valid_phrase(message):
     alphabetic, and true otherwise.
     :rtype: string
     """
-    phrase = message.replace(" ", '')
+    phrase = message.replace(' ', '')
     phrase = phrase.isalpha()
     return phrase
 
@@ -99,6 +99,7 @@ def vigenere_index(key_letter, plain_text_letter):
     """
     v_index = (letter_to_index(plain_text_letter)
                + letter_to_index(key_letter)) % _LETTERS_IN_ALPHABET
+    v_index = int(v_index)
     if v_index >= _LETTERS_IN_ALPHABET:
         v_index -= _LETTERS_IN_ALPHABET
     v_letter = index_to_letter(v_index)
@@ -199,8 +200,9 @@ def get_message():
     if valid_phrase(message_to_encrypt):
         output = message_to_encrypt
     else:
-        print("Not a valid message! Letters must be in the alphabet.")
-        output = False
+        if message_to_encrypt != '':                        # put this in main
+            print("Not a valid message! Letters must be in the alphabet.")
+        output = ''
     return output
 
 
@@ -215,11 +217,38 @@ def get_cyphertext():
     message_to_decrypt = input("Enter the cypher text to decrypt: ")
     message_to_decrypt = message_to_decrypt.upper()
     if valid_phrase(message_to_decrypt):
-        output =  message_to_decrypt
-    else:
-        #print("Not a valid message! Letters must be in the alphabet.")
-        output = False
+        output = message_to_decrypt
+    else:  # put this in main
+        if message_to_decrypt != '' and valid_phrase(message_to_decrypt):
+            print("Not a valid cypher! Letters must be in the alphabet.")
+        output = ''
     return output
+
+
+def test_undo_vig(test_letter):
+    test_letter_index = letter_to_index(test_letter)
+    j = 0
+    for i in range(_LETTERS_IN_ALPHABET):
+        j = i + test_letter_index
+        if j >= _LETTERS_IN_ALPHABET:
+            j -= _LETTERS_IN_ALPHABET
+        key = _ALPHABET[i]
+        letter = _ALPHABET[j]
+        print(key, letter, undo_vig(key, letter))
+
+
+def test_undo_vig_all():
+    for x in range(_LETTERS_IN_ALPHABET):
+        test_letter = _ALPHABET[x]
+        test_letter_index = letter_to_index(test_letter)
+        j = 0
+        for i in range(_LETTERS_IN_ALPHABET):
+            j = i + test_letter_index
+            if j >= _LETTERS_IN_ALPHABET:
+                j -= _LETTERS_IN_ALPHABET
+            key = _ALPHABET[i]
+            letter = _ALPHABET[j]
+            print(key, letter, undo_vig(key, letter))
 
 
 def get_key():
@@ -232,12 +261,13 @@ def get_key():
     """
     key_word = input("Enter the Vigenere key: ")
     key_word = key_word.upper()
-    key_word = key_word.replace(" ", '')
+    key_word = key_word.replace(' ', '')
     if valid_phrase(key_word):
         output = key_word
     else:
-        print("Not a valid key! Letters must be in the alphabet.")
-        output = False
+        if key_word != '' and valid_phrase(key_word):  # put this in main
+            print("Not a valid key! Letters must be in the alphabet.")
+        output = ''
     return output
 
 
@@ -267,20 +297,29 @@ def main():
     while choice != 'Q':
         if choice == 'E':
             key = get_key()
-            while not key:
+            while key == '':
+                print("Not a valid key! Letters must be in the alphabet.")
                 key = get_key()
             message = get_message()
-            while not message:
+            while message == '':
+                print("Not a valid message! Letters must be in the alphabet.")
                 message = get_message()
             print(encrypt_vigenere(key, message))
         elif choice == 'D':
             key = get_key()
-            while not key:
+            while key == '':
+                print("Not a valid key! Letters must be in the alphabet.")
                 key = get_key()
-            message = get_cyphertext()
-            while not message:
-                message = get_cyphertext()
-            print(decrypt_vigenere(key, message))
+            cypher = get_cyphertext()
+            while cypher == '':
+                print("Not a valid cypher! Letters must be in the alphabet.")
+                cypher = get_cyphertext()
+            print(decrypt_vigenere(key, cypher))
+        elif choice == 'T':
+            '''key_letter = input("key letter: ")
+            ct_letter = input("ct letter: ")
+            print(undo_vig(key_letter, ct_letter))'''
+            test_undo_vig_all()
         else:
             print("Invalid response!")
             main()
