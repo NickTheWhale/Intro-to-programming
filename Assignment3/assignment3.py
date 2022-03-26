@@ -119,12 +119,12 @@ def undo_vig(key_letter, ct_letter):
     :rtype: string
     """
     # TODO
-    l_index = (letter_to_index(ct_letter)
+    letter_index = (letter_to_index(ct_letter)
                - letter_to_index(key_letter)) % _LETTERS_IN_ALPHABET
-    if l_index >= _LETTERS_IN_ALPHABET:
-        l_index -= _LETTERS_IN_ALPHABET
-    l_index = index_to_letter(l_index)
-    return l_index
+    if letter_index >= _LETTERS_IN_ALPHABET:
+        letter_index -= _LETTERS_IN_ALPHABET
+    letter_index = index_to_letter(letter_index)
+    return letter_index
 
 
 def decrypt_vigenere(key, cipher_text):
@@ -217,7 +217,7 @@ def get_cyphertext():
     if valid_phrase(message_to_decrypt):
         output =  message_to_decrypt
     else:
-        print("Not a valid message! Letters must bi in the alphabet.")
+        #print("Not a valid message! Letters must be in the alphabet.")
         output = False
     return output
 
