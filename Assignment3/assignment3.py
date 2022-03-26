@@ -105,8 +105,6 @@ def vigenere_index(key_letter, plain_text_letter):
     return v_letter
 
 
-
-
 def undo_vig(key_letter, ct_letter):
     """
     undo_vig takes a letter from the key, a ciphertext letter,
@@ -121,14 +119,12 @@ def undo_vig(key_letter, ct_letter):
     :rtype: string
     """
     # TODO
-    v_index = (letter_to_index(plain_text_letter)
-               + letter_to_index(key_letter)) % _LETTERS_IN_ALPHABET
-    if v_index >= _LETTERS_IN_ALPHABET:
-        v_index -= _LETTERS_IN_ALPHABET
-    v_letter = index_to_letter(v_index)
-    return v_letter
-
-    l_index = (letter_to_index(ct_letter) )
+    l_index = (letter_to_index(ct_letter)
+               - letter_to_index(key_letter)) % _LETTERS_IN_ALPHABET
+    if l_index >= _LETTERS_IN_ALPHABET:
+        l_index -= _LETTERS_IN_ALPHABET
+    l_index = index_to_letter(l_index)
+    return l_index
 
 
 def decrypt_vigenere(key, cipher_text):
@@ -145,7 +141,19 @@ def decrypt_vigenere(key, cipher_text):
     :rtype: string
     """
     # TODO
-    pass
+    decrypted_word = ''
+    key_index = 0
+    for cipher_index in range(len(cipher_text)):
+        if key_index >= len(key):
+            key_index -= len(key)
+        if cipher_text[cipher_index] == ' ':
+            decrypted_word += ' '
+        else:
+            decrypted_letter = undo_vig(key[key_index],
+                                        cipher_text[cipher_index])
+            decrypted_word += decrypted_letter
+        key_index += 1
+    return decrypted_word
 
 
 def encrypt_vigenere(key, plain_text):
@@ -167,10 +175,11 @@ def encrypt_vigenere(key, plain_text):
     for plain_index in range(len(plain_text)):
         if key_index >= len(key):
             key_index -= len(key)
-        if plain_text[plain_index] == " ":
-            encrypted_word += " "
+        if plain_text[plain_index] == ' ':
+            encrypted_word += ' '
         else:
-            encrypted_letter = vigenere_index(key[key_index], plain_text[plain_index])
+            encrypted_letter = vigenere_index(key[key_index],
+                                              plain_text[plain_index])
             encrypted_word += encrypted_letter
         key_index += 1
     return encrypted_word
@@ -187,7 +196,12 @@ def get_message():
     """
     message_to_encrypt = input("Enter the message to be encrypted: ")
     message_to_encrypt = message_to_encrypt.upper()
-    return message_to_encrypt
+    if valid_phrase(message_to_encrypt):
+        output = message_to_encrypt
+    else:
+        print("Not a valid message! Letters must be in the alphabet.")
+        output = False
+    return output
 
 
 def get_cyphertext():
@@ -200,7 +214,12 @@ def get_cyphertext():
     """
     message_to_decrypt = input("Enter the cypher text to decrypt: ")
     message_to_decrypt = message_to_decrypt.upper()
-    return message_to_decrypt
+    if valid_phrase(message_to_decrypt):
+        output =  message_to_decrypt
+    else:
+        print("Not a valid message! Letters must bi in the alphabet.")
+        output = False
+    return output
 
 
 def get_key():
@@ -214,11 +233,12 @@ def get_key():
     key_word = input("Enter the Vigenere key: ")
     key_word = key_word.upper()
     key_word = key_word.replace(" ", '')
-    if key_word.isalpha():
-        return key_word
+    if valid_phrase(key_word):
+        output = key_word
     else:
-        print("Not a valid key! Letter must be in the alphabet.")
-        get_key()
+        print("Not a valid key! Letters must be in the alphabet.")
+        output = False
+    return output
 
 
 def get_choice():
@@ -247,31 +267,24 @@ def main():
     while choice != 'Q':
         if choice == 'E':
             key = get_key()
+            while not key:
+                key = get_key()
             message = get_message()
-            if valid_phrase(message):
-                print(encrypt_vigenere(key, message))
-            else:
-                print("not a valid message ")
-
+            while not message:
+                message = get_message()
+            print(encrypt_vigenere(key, message))
         elif choice == 'D':
-            if valid_phrase(get_cyphertext()):
-                print("")
-            else:
-                print("")
+            key = get_key()
+            while not key:
+                key = get_key()
+            message = get_cyphertext()
+            while not message:
+                message = get_cyphertext()
+            print(decrypt_vigenere(key, message))
         else:
             print("Invalid response!")
             main()
         choice = get_choice()
-
-    '''while 1:
-        word = input("word: ")
-        key = input("key: ")
-        output_index = (letter_to_index(word) + letter_to_index(key) % 26)
-        if output_index > 25:
-            output_index -= 26
-        output_letter = index_to_letter(output_index)
-        print("index: ", output_index)
-        print("letter: ", output_letter)'''
 
 
 if __name__ == '__main__':
