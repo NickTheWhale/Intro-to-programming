@@ -225,7 +225,7 @@ def get_cyphertext():
     return output
 
 
-def test_undo_vig(test_letter):
+def test_undo_vig_letter(test_letter):
     test_letter_index = letter_to_index(test_letter)
     j = 0
     for i in range(_LETTERS_IN_ALPHABET):
@@ -237,7 +237,7 @@ def test_undo_vig(test_letter):
         print(key, letter, undo_vig(key, letter))
 
 
-def test_undo_vig_all():
+def test_undo_vig_all(debug):
     for x in range(_LETTERS_IN_ALPHABET):
         test_letter = _ALPHABET[x]
         test_letter_index = letter_to_index(test_letter)
@@ -248,7 +248,14 @@ def test_undo_vig_all():
                 j -= _LETTERS_IN_ALPHABET
             key = _ALPHABET[i]
             letter = _ALPHABET[j]
-            print(key, letter, undo_vig(key, letter))
+            plaintext = undo_vig(key, letter)
+            if debug:
+                print(f'key: {key}  cipher: {letter}  plaintext: {plaintext} '
+                      f' correct letter: {_ALPHABET[x]}')
+            if plaintext != _ALPHABET[x]:
+                print(f'error!     key: {key}  cipher: {letter}'
+                      f'  wrong output: {plaintext} '
+                      f' correct output: {_ALPHABET[x]}')
 
 
 def get_key():
@@ -295,6 +302,7 @@ def main():
     """
     choice = get_choice()
     while choice != 'Q':
+        # encrypt
         if choice == 'E':
             key = get_key()
             while key == '':
@@ -305,6 +313,7 @@ def main():
                 print("Not a valid message! Letters must be in the alphabet.")
                 message = get_message()
             print(encrypt_vigenere(key, message))
+        # decrypt
         elif choice == 'D':
             key = get_key()
             while key == '':
@@ -315,11 +324,10 @@ def main():
                 print("Not a valid cypher! Letters must be in the alphabet.")
                 cypher = get_cyphertext()
             print(decrypt_vigenere(key, cypher))
+        # test
         elif choice == 'T':
-            '''key_letter = input("key letter: ")
-            ct_letter = input("ct letter: ")
-            print(undo_vig(key_letter, ct_letter))'''
-            test_undo_vig_all()
+            test_undo_vig_all(False)
+
         else:
             print("Invalid response!")
             main()
