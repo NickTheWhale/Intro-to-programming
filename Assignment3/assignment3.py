@@ -324,7 +324,7 @@ def main():
                 print("Not a valid cypher! Letters must be in the alphabet.")
                 cypher = get_cyphertext()
             print(decrypt_vigenere(key, cypher))
-        # test
+        # test function
         elif choice == 'T':
             test_undo_vig_all(False)
 
