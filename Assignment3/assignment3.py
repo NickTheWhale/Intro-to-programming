@@ -100,8 +100,8 @@ def vigenere_index(key_letter, plain_text_letter):
     v_index = (letter_to_index(plain_text_letter)
                + letter_to_index(key_letter)) % _LETTERS_IN_ALPHABET
     v_index = int(v_index)
-    if v_index >= _LETTERS_IN_ALPHABET:
-        v_index -= _LETTERS_IN_ALPHABET
+    '''if v_index >= _LETTERS_IN_ALPHABET:
+        v_index -= _LETTERS_IN_ALPHABET'''
     v_letter = index_to_letter(v_index)
     return v_letter
 
@@ -122,8 +122,8 @@ def undo_vig(key_letter, ct_letter):
     # TODO
     letter_index = (letter_to_index(ct_letter)
                - letter_to_index(key_letter)) % _LETTERS_IN_ALPHABET
-    if letter_index >= _LETTERS_IN_ALPHABET:
-        letter_index -= _LETTERS_IN_ALPHABET
+    '''if letter_index >= _LETTERS_IN_ALPHABET:
+        letter_index -= _LETTERS_IN_ALPHABET'''
     letter_index = index_to_letter(letter_index)
     return letter_index
 
