@@ -238,6 +238,7 @@ def test_undo_vig_letter(test_letter):
 
 
 def test_undo_vig_all(debug):
+    error = False
     for x in range(_LETTERS_IN_ALPHABET):
         test_letter = _ALPHABET[x]
         test_letter_index = letter_to_index(test_letter)
@@ -255,7 +256,9 @@ def test_undo_vig_all(debug):
             if plaintext != _ALPHABET[x]:
                 print(f'error!     key: {key}  cipher: {letter}'
                       f'  wrong output: {plaintext} '
-                      f' correct output: {_ALPHABET[x]}')
+                      f'  correct output: {_ALPHABET[x]}')
+                error = True
+    return error
 
 
 def get_key():
@@ -326,7 +329,8 @@ def main():
             print(decrypt_vigenere(key, cypher))
         # test function
         elif choice == 'T':
-            test_undo_vig_all(False)
+            debug = int(input("debug: (1 or 0) "))
+            test_undo_vig_all(debug)
 
         else:
             print("Invalid response!")
