@@ -291,7 +291,7 @@ def main():
                 print("Not a valid cypher! Letters must be in the alphabet.")
                 cypher = get_cyphertext()
             print(decrypt_vigenere(key, cypher))
-
+        # quit
         elif choice == 'Q':
             pass
 
