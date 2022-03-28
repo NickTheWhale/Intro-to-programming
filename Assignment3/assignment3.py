@@ -254,7 +254,7 @@ def test_undo_vig_all(debug):
                 print(f'key: {key}  cipher: {letter}  plaintext: {plaintext} '
                       f' correct letter: {_ALPHABET[x]}')
             if plaintext != _ALPHABET[x]:
-                print(f'error!     key: {key}  cipher: {letter}'
+                print(f'error!      key: {key}  cipher: {letter}'
                       f'  wrong output: {plaintext} '
                       f'  correct output: {_ALPHABET[x]}')
                 error = True
