@@ -225,32 +225,6 @@ def get_cyphertext():
     return output
 
 
-def test_undo_vig(test_letter):
-    test_letter_index = letter_to_index(test_letter)
-    j = 0
-    for i in range(_LETTERS_IN_ALPHABET):
-        j = i + test_letter_index
-        if j >= _LETTERS_IN_ALPHABET:
-            j -= _LETTERS_IN_ALPHABET
-        key = _ALPHABET[i]
-        letter = _ALPHABET[j]
-        print(key, letter, undo_vig(key, letter))
-
-
-def test_undo_vig_all():
-    for x in range(_LETTERS_IN_ALPHABET):
-        test_letter = _ALPHABET[x]
-        test_letter_index = letter_to_index(test_letter)
-        j = 0
-        for i in range(_LETTERS_IN_ALPHABET):
-            j = i + test_letter_index
-            if j >= _LETTERS_IN_ALPHABET:
-                j -= _LETTERS_IN_ALPHABET
-            key = _ALPHABET[i]
-            letter = _ALPHABET[j]
-            print(key, letter, undo_vig(key, letter))
-
-
 def get_key():
     """
     Prompts the user for the Vigenere key. Returns the Vigenere key.
@@ -315,11 +289,6 @@ def main():
                 print("Not a valid cypher! Letters must be in the alphabet.")
                 cypher = get_cyphertext()
             print(decrypt_vigenere(key, cypher))
-        elif choice == 'T':
-            '''key_letter = input("key letter: ")
-            ct_letter = input("ct letter: ")
-            print(undo_vig(key_letter, ct_letter))'''
-            test_undo_vig_all()
         else:
             print("Invalid response!")
             main()
