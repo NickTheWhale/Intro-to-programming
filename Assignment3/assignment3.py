@@ -122,9 +122,10 @@ def undo_vig(key_letter, ct_letter):
     # TODO
     letter_index = (letter_to_index(ct_letter) -
                     letter_to_index(key_letter)) % _LETTERS_IN_ALPHABET
+    letter_index = int(letter_index)
     if letter_index >= _LETTERS_IN_ALPHABET:
         letter_index -= _LETTERS_IN_ALPHABET
-    letter_index = index_to_letter(letter_index + 0)
+    letter_index = index_to_letter(letter_index)
     return letter_index
 
 
@@ -291,13 +292,9 @@ def main():
                 print("Not a valid cypher! Letters must be in the alphabet.")
                 cypher = get_cyphertext()
             print(decrypt_vigenere(key, cypher))
-        # quit
-        elif choice == 'Q':
-            pass
 
         else:
             print("Invalid response!")
-            main()
         choice = get_choice()
 
 
