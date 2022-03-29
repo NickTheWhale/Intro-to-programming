@@ -124,7 +124,7 @@ def undo_vig(key_letter, ct_letter):
                     letter_to_index(key_letter)) % _LETTERS_IN_ALPHABET
     if letter_index >= _LETTERS_IN_ALPHABET:
         letter_index -= _LETTERS_IN_ALPHABET
-    letter_index = index_to_letter(letter_index)
+    letter_index = index_to_letter(letter_index + 0)
     return letter_index
 
 
