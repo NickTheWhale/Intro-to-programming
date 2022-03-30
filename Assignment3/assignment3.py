@@ -61,11 +61,15 @@ def letter_to_index(letter):
     :type letter: a string
     :return: the index of the parameter in the alphabet string
     :rtype: string
+
     """
+    output = ''
     letter = letter.upper()
-    index = ord(letter)
-    index -= 65  # convert ascii value to 0 index
-    return index
+    for index in range(_LETTERS_IN_ALPHABET):
+        if _ALPHABET[index] == letter:
+            output = index
+    #output = int(output)
+    return output
 
 
 def index_to_letter(idx):
@@ -78,9 +82,7 @@ def index_to_letter(idx):
     :return: the letter from the alphabet at the index provided
     :rtype: string
     """
-    idx += 65  # convert 0 index to ascii decimal value
-    letter = chr(idx)
-    return letter
+    return _ALPHABET[idx]
 
 
 def vigenere_index(key_letter, plain_text_letter):
