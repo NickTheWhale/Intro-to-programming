@@ -104,10 +104,12 @@ def run_phase(is_phase_1):
 
 
 def run_phase_timed(is_phase_1):
+    time_to_answer = 10  # how long you get to answer in seconds
     n_correct = 0
     test_count = 0
+    cumulative_time = 0
     previous_answer_time = time.time()
-    while time.time() - previous_answer_time <= 10:
+    while time.time() - previous_answer_time <= time_to_answer:
         if not is_phase_1:
             name_color = random_color_name()
             font_color = random_color_name()
@@ -116,22 +118,29 @@ def run_phase_timed(is_phase_1):
             print_in_color(name_color, font_color)
             previous_time = time.time()
             answer_color = input("What color ink is the word written in? ")
+            time_passed = time.time() - previous_answer_time
             if answer_color != font_color:
                 current_time = time.time()
                 print(f'Correct answer was {name_color}.')
             else:
                 current_time = time.time()
-                if current_time - previous_answer_time <= 10:
+                if current_time - previous_answer_time <= time_to_answer:
                     n_correct += 1
+            # time_passed = time.time() - previous_answer_time
             interval = current_time - previous_time - _TIME_OFFSET
             interval *= 1000
             interval = round(interval)
             test_count += 1
-            print(f'Time: {interval} milliseconds')
+            cumulative_time += time.time() - previous_time
+            time_left = time_to_answer - cumulative_time
+            if time_left < 0:
+                time_passed = time_passed + time_left
+                time_left = 0
+            time_left = round(time_left, 2)
+            print(f'Interval: {interval} milliseconds     Time left: {time_left}')
     print('')
     print('')
-    print(f'You got {n_correct} out of {test_count} in 10 seconds')
-
+    print(f'You got {n_correct} out of {test_count} in {time_passed:1} seconds')
 
 
 def run_single_test(is_phase_1):
