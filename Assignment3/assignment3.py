@@ -6,12 +6,12 @@ Course: CS1430, Section 02,  Spring 2022
 Assignment: Assignment 3
 
 Purpose:    To write a Python solution that will encrypt and decrypt a message
-            using a Vigenère cipher. Pseudocode to encrypt a message:
+            using a VigenÃ¨re cipher. Pseudocode to encrypt a message:
             1.	Initialize an empty string.
             2.	For each letter in the plaintext message:
                 a.	Determine which letter of the key to use.
                 b.	Using the key letter, look up the ciphertext letter in the
-                    Vigenère square in the plaintext character column.
+                    VigenÃ¨re square in the plaintext character column.
                 c.	Add the ciphertext letter to the ciphertext message.
             3.	Return the resulting string as the ciphertext message.
 
@@ -61,11 +61,15 @@ def letter_to_index(letter):
     :type letter: a string
     :return: the index of the parameter in the alphabet string
     :rtype: string
+
     """
+    output = ''
     letter = letter.upper()
-    index = ord(letter)
-    index -= 65  # convert ascii value to 0 index
-    return index
+    for index in range(_LETTERS_IN_ALPHABET):
+        if _ALPHABET[index] == letter:
+            output = index
+    #output = int(output)
+    return output
 
 
 def index_to_letter(idx):
@@ -78,9 +82,7 @@ def index_to_letter(idx):
     :return: the letter from the alphabet at the index provided
     :rtype: string
     """
-    idx += 65  # convert 0 index to ascii decimal value
-    letter = chr(idx)
-    return letter
+    return _ALPHABET[idx]
 
 
 def vigenere_index(key_letter, plain_text_letter):
@@ -265,7 +267,7 @@ def get_choice():
 def main():
     """
     A Python solution that will encrypt and decrypt a message
-    using a Vigenère cipher.
+    using a VigenÃ¨re cipher.
     :return: none
     """
     choice = get_choice()
