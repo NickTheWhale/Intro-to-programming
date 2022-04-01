@@ -49,8 +49,9 @@ init(autoreset=True)
 #########################
 # CONSTANTS
 #########################
-_SEED = 30
+_SEED = 30  # run_phase_random_false -> 27, run_phase_random_true -> 30
 _RNG = random.Random(_SEED)
+_TIME_OFFSET = 0.028
 
 
 def main():
@@ -64,18 +65,14 @@ def main():
     if phase == "TRUE":
         print(run_phase(True))
         main()
-
     elif phase == "FALSE":
         print(run_phase(False))
         main()
-
     elif phase == "STOP":
         pass
-
     elif phase == "TEST":
         print(get_font_color("yellow", False))
         main()
-
     else:
         print("invalid input")
         main()
@@ -130,12 +127,19 @@ def run_single_test(is_phase_1):
         while font_color == name_color:
             font_color = random_color_name()
         print_in_color(name_color, font_color)
+        previous_time = time.time()
         answer_color = input("What color ink is the word written in? ")
         if answer_color != font_color:
+            current_time = time.time()
             print(f'Correct answer was {name_color}.')
             output = False
         else:
+            current_time = time.time()
             output = True
+        interval = current_time - previous_time - _TIME_OFFSET
+        interval *= 1000
+        interval = round(interval)
+        print(f'Time: {interval} milliseconds')
     return output
 
 
@@ -163,7 +167,6 @@ def get_font_color(color_name, is_phase_1):
     """
     if not is_phase_1:
         color_name = random_color_name()
-        color_name = "pink"
     return color_name
 
 
