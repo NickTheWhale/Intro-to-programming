@@ -51,7 +51,7 @@ init(autoreset=True)
 #########################
 _SEED = 30  # run_phase_random_false -> 27, run_phase_random_true -> 30
 _RNG = random.Random(_SEED)
-_TIME_OFFSET = 0.028
+_TIME_OFFSET = 0
 
 
 def main():
@@ -71,7 +71,7 @@ def main():
     elif phase == "STOP":
         pass
     elif phase == "TEST":
-        print(get_font_color("yellow", False))
+        print(get_font_color(False, False))
         main()
     elif phase == "TIMED":
         run_phase_timed(False)
@@ -121,7 +121,7 @@ def run_phase_timed(is_phase_1):
             time_passed = time.time() - previous_answer_time
             if answer_color != font_color:
                 current_time = time.time()
-                print(f'Correct answer was {name_color}.')
+                print(f'Correct answer was: {name_color}')
             else:
                 current_time = time.time()
                 if current_time - previous_answer_time <= time_to_answer:
@@ -140,7 +140,8 @@ def run_phase_timed(is_phase_1):
             print(f'Interval: {interval} milliseconds     Time left: {time_left}')
     print('')
     print('')
-    print(f'You got {n_correct} out of {test_count} in {time_passed:1} seconds')
+    time_passed = round(time_passed, 1)
+    print(f'You got {n_correct} out of {test_count} in {time_passed} seconds')
 
 
 def run_single_test(is_phase_1):
@@ -154,27 +155,30 @@ def run_single_test(is_phase_1):
     :return: True if response == font_color
     :rtype: boolean
     """
-
+    print()
     if is_phase_1:
         name_color = random_color_name()
         print_in_color(name_color, name_color)
         answer_color = input("What color ink is the word written in? ")
         if answer_color != name_color:
-            print(f'Correct answer was {name_color}.')
+            print(f'Correct answer was: {name_color}')
             output = False
         else:
             output = True
     elif not is_phase_1:
-        name_color = random_color_name()
+        # name_color = random_color_name()
+        # font_color = random_color_name()
         font_color = random_color_name()
+        name_color = random_color_name()
+
         while font_color == name_color:
-            font_color = random_color_name()
+            name_color = random_color_name()
         print_in_color(name_color, font_color)
         previous_time = time.time()
         answer_color = input("What color ink is the word written in? ")
         if answer_color != font_color:
             current_time = time.time()
-            print(f'Correct answer was {name_color}.')
+            print(f'Correct answer was: {name_color}')
             output = False
         else:
             current_time = time.time()
@@ -182,7 +186,7 @@ def run_single_test(is_phase_1):
         interval = current_time - previous_time - _TIME_OFFSET
         interval *= 1000
         interval = round(interval)
-        print(f'Time: {interval} milliseconds')
+        # print(f'Time: {interval} milliseconds')
     return output
 
 
@@ -230,7 +234,8 @@ def random_color_name():
     :return: a random string color
     :rtype: string
     """
-    return _RNG.choice(['red', 'blue', 'pink'])
+    # return _RNG.choice(['red', 'blue', 'pink'])
+    return _RNG.choice(['pink', 'red', 'blue'])
 
 
 def print_in_color(text, font_color):
