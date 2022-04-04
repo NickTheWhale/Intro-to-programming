@@ -68,7 +68,7 @@ def letter_to_index(letter):
     for index in range(_LETTERS_IN_ALPHABET):
         if _ALPHABET[index] == letter:
             output = index
-    #output = int(output)
+    # output = int(output)
     return output
 
 
@@ -294,7 +294,10 @@ def main():
                 print("Not a valid cypher! Letters must be in the alphabet.")
                 cypher = get_cyphertext()
             print(decrypt_vigenere(key, cypher))
-
+        elif choice == 'T':
+            key_letter = input("key letter: ")
+            cipher_letter = input("cipher letter: ")
+            print(undo_vig(key_letter, cipher_letter))
         else:
             print("Invalid response!")
         choice = get_choice()

@@ -76,6 +76,9 @@ def main():
     elif phase == "TIMED":
         run_phase_timed(False)
         main()
+    elif phase == "SINGLE":
+        print(run_single_test(False))
+        main()
     else:
         print("invalid input")
         main()
@@ -126,7 +129,6 @@ def run_phase_timed(is_phase_1):
                 current_time = time.time()
                 if current_time - previous_answer_time <= time_to_answer:
                     n_correct += 1
-            # time_passed = time.time() - previous_answer_time
             interval = current_time - previous_time - _TIME_OFFSET
             interval *= 1000
             interval = round(interval)
@@ -137,7 +139,8 @@ def run_phase_timed(is_phase_1):
                 time_passed = time_passed + time_left
                 time_left = 0
             time_left = round(time_left, 2)
-            print(f'Interval: {interval} milliseconds     Time left: {time_left}')
+            print(f'Interval: {interval} milliseconds     '
+                  f'Time left: {time_left} seconds')
     print('')
     print('')
     time_passed = round(time_passed, 1)
@@ -166,26 +169,23 @@ def run_single_test(is_phase_1):
         else:
             output = True
     elif not is_phase_1:
-        # name_color = random_color_name()
-        # font_color = random_color_name()
         font_color = random_color_name()
         name_color = random_color_name()
-
         while font_color == name_color:
             name_color = random_color_name()
         print_in_color(name_color, font_color)
-        previous_time = time.time()
+        # previous_time = time.time()
         answer_color = input("What color ink is the word written in? ")
         if answer_color != font_color:
-            current_time = time.time()
+            # current_time = time.time()
             print(f'Correct answer was: {name_color}')
             output = False
         else:
-            current_time = time.time()
+            # current_time = time.time()
             output = True
-        interval = current_time - previous_time - _TIME_OFFSET
-        interval *= 1000
-        interval = round(interval)
+        # interval = current_time - previous_time - _TIME_OFFSET
+        # interval *= 1000
+        # interval = round(interval)
         # print(f'Time: {interval} milliseconds')
     return output
 
@@ -212,9 +212,16 @@ def get_font_color(color_name, is_phase_1):
     :return: next_choice
     :rtype: string
     """
-    if not is_phase_1:
+    '''if not is_phase_1:
         color_name = random_color_name()
-    return color_name
+    return color_name'''
+
+    final_color = color_name
+    if not is_phase_1:
+        final_color = random_color_name()
+        while final_color == color_name:
+            final_color = random_color_name()
+    return final_color
 
 
 def print_intro():
@@ -234,8 +241,7 @@ def random_color_name():
     :return: a random string color
     :rtype: string
     """
-    # return _RNG.choice(['red', 'blue', 'pink'])
-    return _RNG.choice(['pink', 'red', 'blue'])
+    return _RNG.choice(['red', 'blue', 'pink'])
 
 
 def print_in_color(text, font_color):
