@@ -1,9 +1,20 @@
-sum = 0
-for i in range(1, 99):
-    sum += i / (i + 1)
-print("Sum is " + str(sum))
+print("Gavin\Donna\Platteville")
+print("Gavin\\Donna\\Platteville")
+print("Gavin\Donna\\Platteville")
 
-sum = 0
-for i in range(1, 100):
-    sum += i / (i + 1)
-print("Sum is " + str(sum))
+s = "Donna Gavin Python"
+print( s [ 6 : 12] * 3 )
+
+i = 0
+while i < 5:
+    print(i, end="")
+    i += 1
+    if i == 3:
+        break
+    else:
+        print (0, end="")
+
+s = "CS-1430"
+print()
+print(s.lower())
+
