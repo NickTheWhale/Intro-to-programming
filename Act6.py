@@ -1,20 +1,19 @@
-print("Gavin\Donna\Platteville")
-print("Gavin\\Donna\\Platteville")
-print("Gavin\Donna\\Platteville")
-
-s = "Donna Gavin Python"
-print( s [ 6 : 12] * 3 )
-
-i = 0
-while i < 5:
-    print(i, end="")
-    i += 1
-    if i == 3:
-        break
-    else:
-        print (0, end="")
-
-s = "CS-1430"
-print()
-print(s.lower())
+import time
+outfile = open("out.txt", "w")
+outfile.write("Example ")
+outfile.write("output ")
+outfile.write("text file\n")
+outfile.write("xyz Coordinates\n")
+outfile.write("MODEL\n")
+outfile.write("ATOM %3d" % 1)
+seq = "n %5.1f%5.1f%5.1f" % (0, 1, 2)
+print("n %5.1f%5.1f%5.1f" % (0, 1, 2))
+outfile.write(seq)
+outfile.write("\n")
+outfile = open("lines.txt", "w")
+previous_time = time.time()
+for i in range(100):
+     outfile.write(f'Line #{i+1} time {time.time() - previous_time}\n')
+     # time.sleep(0.0001)
+outfile.close()
 
