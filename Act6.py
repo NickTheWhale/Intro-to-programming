@@ -1,4 +1,4 @@
-import time
+'''import time
 outfile = open("out.txt", "w")
 outfile.write("Example ")
 outfile.write("output ")
@@ -15,5 +15,13 @@ previous_time = time.time()
 for i in range(100):
      outfile.write(f'Line #{i+1} time {time.time() - previous_time}\n')
      # time.sleep(0.0001)
-outfile.close()
+outfile.close()'''
+
+infile = open("names.txt", "r")
+for line in infile:
+    last_name = line.split()
+    print(last_name[1])
+
+infile.close()
+
 
