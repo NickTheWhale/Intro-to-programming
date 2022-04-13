@@ -75,7 +75,15 @@ def main():
                 lines = in_file.readlines()
 
             # process each possible protein from the file
-            pass
+            # for line in lines:
+            #     print(line)
+            # print(lines)
+            for i in range(0, len(lines), 2):
+                line = lines[i].strip()
+                line2 = lines[i + 1].strip()
+                print(line)
+                print(line2)
+                print()
 
 
 def get_counts(chain):
