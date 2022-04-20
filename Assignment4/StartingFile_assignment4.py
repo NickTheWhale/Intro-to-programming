@@ -99,7 +99,6 @@ def get_counts(chain):
     pass
 
 
-
 def get_total_mass(counts, junk_count):
     """
     Computes/returns the total mass of the given sequence of nucleotides,
@@ -116,7 +115,6 @@ def get_total_mass(counts, junk_count):
     for i in range(0, len(counts)):
         total_mass += counts[i] * MASSES[i]
     return total_mass
-
 
 
 def get_percentages(counts, total_mass):
@@ -136,7 +134,6 @@ def get_percentages(counts, total_mass):
     pass
 
 
-
 def get_codons(sequence):
     """
     Breaks apart the given String into codons of 3 nucleotides each.
@@ -149,7 +146,6 @@ def get_codons(sequence):
     :rtype: list of strings
     """
     pass
-
 
 
 def report_results(name, sequence, counts, total_mass, percentages, codons,
@@ -180,8 +176,6 @@ def report_results(name, sequence, counts, total_mass, percentages, codons,
     # Fill in the rest of the out_file.write() statements
     
 
-
-
 def is_protein(codons, percentages):
     """
     Returns a True if the given sequence of codons encodes a protein,
@@ -199,7 +193,6 @@ def is_protein(codons, percentages):
     pass
 
 
-
 def round1(value):
     """
     Rounds the given real number to one digit past the decimal point.
@@ -209,7 +202,6 @@ def round1(value):
     :rtype: float
     """
     return round(value * _TENTHS_PRECISION) / _TENTHS_PRECISION
-
 
 
 def nuc_index(nucleotide):
