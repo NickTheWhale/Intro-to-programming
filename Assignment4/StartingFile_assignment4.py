@@ -73,17 +73,21 @@ def main():
 
             with open(in_file) as in_file:
                 lines = in_file.readlines()
+                print(lines)
+                for i in range(len(lines)):
+                    lines[i] = lines[i].strip()
+                print(lines)
 
             # process each possible protein from the file
             # for line in lines:
             #     print(line)
             # print(lines)
-            for i in range(0, len(lines), 2):
+            '''for i in range(0, len(lines), 2):
                 line = lines[i].strip()
                 line2 = lines[i + 1].strip()
                 print(line)
                 print(line2)
-                print()
+                print()'''
 
 
 def get_counts(chain):
@@ -113,7 +117,7 @@ def get_total_mass(counts, junk_count):
     """
     total_mass = junk_count * _JUNK_MASS
     for i in range(0, len(counts)):
-        total_mass += counts[i] * MASSES[i]
+        total_mass += counts[i] * _MASSES[i]
     return total_mass
 
 

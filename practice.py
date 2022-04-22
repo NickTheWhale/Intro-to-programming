@@ -1,0 +1,8 @@
+
+
+str = "GCTTGCGCCAACGcCATTTCATCGCCATCCCGCCgAgcATACAGGCCTCGgAaGAACCAaTGGTGTTGGTGcCAACGGCCtGAccATTTTTcGGTGCAGGCGCATGCCACAGATCGGCAACCATGTTTACGCAACGCAGATCGATTGCTGcAGaTTGCGGATATTctTCTTTGTCGATCCAGTTTTTGTtAATGGAtAAAtCCA"
+str = str.upper()
+lst = [str[i:i + 3] for i in range(0, len(str), 3)]
+print(lst)
+print(f'first element: {lst[0]}')
+print(f'last element: {lst[-1]}')
