@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="deeaca38-e7d8-4593-8dd0-b432cc42114e" name="Default Changelist" comment="assignment4">
-      <change afterPath="$PROJECT_DIR$/practice.py" afterDir="false" />
+    <list default="true" id="deeaca38-e7d8-4593-8dd0-b432cc42114e" name="Default Changelist" comment="string splitting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Act6.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assignment4/StartingFile_assignment4.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment4/StartingFile_assignment4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/practice.py" beforeDir="false" afterPath="$PROJECT_DIR$/practice.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,7 +196,7 @@
       <workItem from="1649689826935" duration="2299000" />
       <workItem from="1649862147274" duration="3066000" />
       <workItem from="1650466978408" duration="2774000" />
-      <workItem from="1650639187669" duration="1197000" />
+      <workItem from="1650639187669" duration="2180000" />
     </task>
     <task id="LOCAL-00001" summary="e">
       <created>1646970936520</created>
@@ -424,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650467040371</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="string splitting">
+      <created>1650640412743</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1650640412743</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -462,10 +467,11 @@
     <MESSAGE value="files" />
     <MESSAGE value="file stuff" />
     <MESSAGE value="assignment4" />
-    <option name="LAST_COMMIT_MESSAGE" value="assignment4" />
+    <MESSAGE value="string splitting" />
+    <option name="LAST_COMMIT_MESSAGE" value="string splitting" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PycharmProjects$practice__1_.coverage" NAME="practice (1) Coverage Results" MODIFIED="1650640389693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/PycharmProjects$practice__1_.coverage" NAME="practice (1) Coverage Results" MODIFIED="1650641387268" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PycharmProjects$Act6.coverage" NAME="Act6 Coverage Results" MODIFIED="1650469443664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/PycharmProjects$StartingFile_assignment4.coverage" NAME="StartingFile_assignment4 Coverage Results" MODIFIED="1650639809548" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assignment4" />
   </component>
