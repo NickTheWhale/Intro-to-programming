@@ -58,7 +58,7 @@ def main():
     and decides whether or not each piece of DNA is a protein.
     :return: None
     """
-    print("This program reports information about DNA")      # intro
+    print("This program reports information about DNA")     # intro
     print("nucleotide sequences that may encode proteins.")
         
     # prompt for file names
