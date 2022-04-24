@@ -1,7 +1,7 @@
 """
-Name: <Fill in your name>
+Name: Nicholas Loehrke and Dylan Brodie
 
-Course: CS1430, Section <Insert section here>,  Spring 2022
+Course: CS1430, Section 02,  Spring 2022
 
 Assignment: Assignment 04
 
@@ -73,10 +73,28 @@ def main():
 
             with open(in_file) as in_file:
                 lines = in_file.readlines()
-                print(lines)
-                for i in range(len(lines)):
-                    lines[i] = lines[i].strip()
-                print(lines)
+                for i in range(0, len(lines), 2):
+                    region_name = lines[i].strip()
+                    nucleotides = lines[i + 1].strip()
+                    counts = get_counts(nucleotides)
+                    junk_count = get_dashes(nucleotides)
+                    total_mass = get_total_mass(counts, junk_count)
+                    mass_percent = get_percentages(counts, total_mass)
+                    codons_list = get_codons(nucleotides)
+                    percentages = get_percentages(counts, total_mass)
+                    protein = is_protein(codons_list, percentages)
+
+                    print("Region Name: ", region_name)
+                    print("Nucleotides: ", nucleotides)
+                    print("Nuc. Counts: ", counts)
+                    print("Total Mass%: ", mass_percent, " of ", round1(total_mass))
+                    print("Codons List: ", codons_list)
+                    print("Is Protein?: ", end="")
+                    is_true = "YES" if protein else "NO"
+                    print(is_true)
+                    print()
+
+
 
             # process each possible protein from the file
             # for line in lines:
@@ -87,7 +105,12 @@ def main():
                 line2 = lines[i + 1].strip()
                 print(line)
                 print(line2)
-                print()'''
+                print()
+                
+                print(lines)
+                for i in range(len(lines)):
+                    lines[i] = lines[i].strip()
+                print(lines)'''
 
 
 def get_counts(chain):
@@ -100,7 +123,18 @@ def get_counts(chain):
     {Acount, Ccount, Gcount, Tcount}
     :rtype: list of integers
     """
-    pass
+    chain = chain.upper()
+    counts = [0, 0, 0, 0]
+    for i in range(len(chain)):
+        if chain[i] == 'A':
+            counts[0] += 1
+        elif chain[i] == 'C':
+            counts[1] += 1
+        elif chain[i] == 'G':
+            counts[2] += 1
+        elif chain[i] == 'T':
+            counts[3] += 1
+    return counts
 
 
 def get_total_mass(counts, junk_count):
@@ -135,7 +169,13 @@ def get_percentages(counts, total_mass):
     :return: a list of mass percentages {A%, C%, G%, T%}
     :rtype: list of floats
     """
-    pass
+    # A C G T
+    mass_percent = [0, 0, 0, 0]
+    mass_percent[0] = round1(_MASSES[0] * counts[0] * 100.0 / total_mass)
+    mass_percent[1] = round1(_MASSES[1] * counts[1] * 100.0 / total_mass)
+    mass_percent[2] = round1(_MASSES[2] * counts[2] * 100.0 / total_mass)
+    mass_percent[3] = round1(_MASSES[3] * counts[3] * 100.0 / total_mass)
+    return mass_percent
 
 
 def get_codons(sequence):
@@ -149,7 +189,10 @@ def get_codons(sequence):
     a multiple of 3.
     :rtype: list of strings
     """
-    pass
+    sequence = sequence.replace("\n", "")
+    sequence = sequence.upper()
+    codons = [sequence[i:i + 3] for i in range(0, len(sequence), 3)]
+    return codons
 
 
 def report_results(name, sequence, counts, total_mass, percentages, codons,
@@ -194,7 +237,13 @@ def is_protein(codons, percentages):
     :return: True if a protein, False otherwise
     :rtype: Boolean
     """
-    pass
+    if codons[0] == "ATG":
+        last = codons[-1]
+        if last in ["TAA", "TAG", "TGA"]:
+            if len(codons) >= _MINIMUM_LENGTH:
+                if percentages[1] + percentages[2] > _CG_PERCENTAGE:
+                    return True
+    return False
 
 
 def round1(value):
@@ -217,7 +266,13 @@ def nuc_index(nucleotide):
     :return: nucleotide index in [A,C,G,T], -1 if not found
     :rtype: integer
     """
-    pass
+    nucleotide = nucleotide.upper()
+    index = ["A", "B", "C", "D"]
+    return index.find(nucleotide)
+
+
+def get_dashes(nucleotide):
+    return nucleotide.count('-')
 
 
 if __name__ == '__main__':
