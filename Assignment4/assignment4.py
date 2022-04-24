@@ -1,7 +1,7 @@
 """
 Name: Nicholas Loehrke and Dylan Brodie
 
-Course: CS1430, Section 02,  Spring 2022
+Course: CS1430, Section 02, Spring 2022
 
 Assignment: Assignment 04
 
@@ -74,43 +74,16 @@ def main():
             with open(in_file) as in_file:
                 lines = in_file.readlines()
                 for i in range(0, len(lines), 2):
-                    region_name = lines[i].strip()
-                    nucleotides = lines[i + 1].strip()
+                    region_name = lines[i]
+                    nucleotides = lines[i + 1].upper()
                     counts = get_counts(nucleotides)
                     junk_count = get_dashes(nucleotides)
                     total_mass = get_total_mass(counts, junk_count)
-                    mass_percent = get_percentages(counts, total_mass)
                     codons_list = get_codons(nucleotides)
                     percentages = get_percentages(counts, total_mass)
-                    protein = is_protein(codons_list, percentages)
 
-                    print("Region Name: ", region_name)
-                    print("Nucleotides: ", nucleotides)
-                    print("Nuc. Counts: ", counts)
-                    print("Total Mass%: ", mass_percent, " of ", round1(total_mass))
-                    print("Codons List: ", codons_list)
-                    print("Is Protein?: ", end="")
-                    is_true = "YES" if protein else "NO"
-                    print(is_true)
-                    print()
-
-
-
-            # process each possible protein from the file
-            # for line in lines:
-            #     print(line)
-            # print(lines)
-            '''for i in range(0, len(lines), 2):
-                line = lines[i].strip()
-                line2 = lines[i + 1].strip()
-                print(line)
-                print(line2)
-                print()
-                
-                print(lines)
-                for i in range(len(lines)):
-                    lines[i] = lines[i].strip()
-                print(lines)'''
+                    report_results(region_name, nucleotides, counts, total_mass,
+                                   percentages, codons_list, out_file)
 
 
 def get_counts(chain):
@@ -169,7 +142,6 @@ def get_percentages(counts, total_mass):
     :return: a list of mass percentages {A%, C%, G%, T%}
     :rtype: list of floats
     """
-    # A C G T
     mass_percent = [0, 0, 0, 0]
     mass_percent[0] = round1(_MASSES[0] * counts[0] * 100.0 / total_mass)
     mass_percent[1] = round1(_MASSES[1] * counts[1] * 100.0 / total_mass)
@@ -189,9 +161,11 @@ def get_codons(sequence):
     a multiple of 3.
     :rtype: list of strings
     """
-    sequence = sequence.replace("\n", "")
+    sequence = sequence.strip()
     sequence = sequence.upper()
-    codons = [sequence[i:i + 3] for i in range(0, len(sequence), 3)]
+    sequence = sequence.replace("-", "")
+    codons = [sequence[i:i + _CODON_LENGTH]
+              for i in range(0, len(sequence), _CODON_LENGTH)]
     return codons
 
 
@@ -202,7 +176,7 @@ def report_results(name, sequence, counts, total_mass, percentages, codons,
     it is a protein. 
     :param name: The name line read in before the nucleotide
     :type name: string
-    :param sequence: The nucleotide sequence with junk charcters
+    :param sequence: The nucleotide sequence with junk characters
     :type sequence: string
     :param counts: counts of the nucleotides in list  [A, C, G, T]
     :type counts: list of integers
@@ -218,8 +192,20 @@ def report_results(name, sequence, counts, total_mass, percentages, codons,
     :type out_file: output file name with extension
     :return: None
     """
-    out_file.write("Region Name: " + name)
-    
+    #out_file.write("Region Name: " + name)
+    codons_list = get_codons(sequence)
+    protein = is_protein(codons_list, percentages)
+    name = name.strip()
+    sequence = sequence.strip()
+    out_file.write(f'Region Name: {name}\n')
+    out_file.write(f'Nucleotides: {sequence}\n')
+    out_file.write(f'Nuc. Counts: {counts}\n')
+    out_file.write(f'Total Mass%: {percentages} of '
+                   f'{round1(total_mass)}\n')
+    out_file.write(f'Codons List: {codons}\n')
+    is_true = "YES" if protein else "NO"
+    out_file.write(f'Is Protein?: {is_true}\n\n')
+
     # Fill in the rest of the out_file.write() statements
     
 
@@ -241,7 +227,7 @@ def is_protein(codons, percentages):
         last = codons[-1]
         if last in ["TAA", "TAG", "TGA"]:
             if len(codons) >= _MINIMUM_LENGTH:
-                if percentages[1] + percentages[2] > _CG_PERCENTAGE:
+                if percentages[1] + percentages[2] >= _CG_PERCENTAGE:
                     return True
     return False
 

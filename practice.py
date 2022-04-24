@@ -28,3 +28,6 @@ if codons[0] in ["a", "b", "c"]:
     print("found")
 if codons[0] in ["w", "q", "r"]:
     print("found")
+
+
+print(f'hi{1}')
