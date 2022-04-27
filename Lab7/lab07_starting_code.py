@@ -58,7 +58,7 @@ def main():
     """
     random.seed(_SEED)
     print_intro()
-    # Your solution goes here
+    # Your student goes here
     run_single_test(False)
     # input("delay")
     # print(time.time())

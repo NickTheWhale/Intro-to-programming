@@ -5,7 +5,7 @@ Course: CS1430, Section 02,  Spring 2022
 
 Assignment: Assignment 3
 
-Purpose:    To write a Python solution that will encrypt and decrypt a message
+Purpose:    To write a Python student that will encrypt and decrypt a message
             using a VigenÃ¨re cipher. Pseudocode to encrypt a message:
             1.	Initialize an empty string.
             2.	For each letter in the plaintext message:
@@ -266,7 +266,7 @@ def get_choice():
 
 def main():
     """
-    A Python solution that will encrypt and decrypt a message
+    A Python student that will encrypt and decrypt a message
     using a VigenÃ¨re cipher.
     :return: none
     """
