@@ -1,3 +1,5 @@
+import time
+
 class Rectangle:
     """
     author: Nick
@@ -25,11 +27,38 @@ class Rectangle:
     def area(self):
         return self.__length * self.__width
 
+    def perimeter(self):
+        return (self.__length + self.__width) * 2
+
+    @property
+    def width(self):
+        return self.__width
+
+    @width.setter
+    def width(self, width):
+        self.__width = width
+
+    @property
+    def length(self):
+        return self.__length
+    
+    @length.setter
+    def length(self, length):
+        self.__length = length
+
+
+
+
 
 def main():
-    rect = [Rectangle() for i in range(5)]
-    for i in range(5):
-        rect[i].print_rectangle()
+    previous_time = time.time()
+    num_of_rectangles = 5000000
+    rect = [Rectangle() for i in range(num_of_rectangles)]
+    elapsed_time = time.time() - previous_time
+    print(elapsed_time)
+
+    '''for i in range(num_of_rectangles):
+        rect[i].print_rectangle()'''
 
 
 if __name__ == "__main__":
