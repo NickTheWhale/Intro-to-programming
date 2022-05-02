@@ -144,6 +144,7 @@ class Game:
         :return: None
         """
         for i in range(len(self.__heaps)):
+            # can i do this?
             self.__heaps[i] = self.__heaps[i].__initial_size
         self.__turn_index = 0
 
@@ -154,7 +155,8 @@ class Game:
         :type
         :return: None
         """
-        pass
+        # can i do this too?
+        self.__players[player_index].increment_score()
 
     def print_player_scores(self):
         """
@@ -162,7 +164,8 @@ class Game:
         Player <player index + 1> score: <score>
         :return: None
         """
-        pass
+        for i in range(len(self.__players)):
+            print(f'Player {i+1} score {self.__players.score}')
 
     def print_round_winner(self):
         """
@@ -170,4 +173,5 @@ class Game:
         Player <player name> has won this round!
         :return: None
         """
-        pass
+        # TODO determine winning player
+        print(f'Player <insert player name here> has won this round!')
