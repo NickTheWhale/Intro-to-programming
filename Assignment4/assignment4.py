@@ -2,7 +2,6 @@
 Name: Nicholas Loehrke and Dylan Brodie
 
 Course: CS1430, Section 02, Spring 2022
-
 Assignment: Assignment 04
 
 Purpose:    Your program should work with the two given input files.

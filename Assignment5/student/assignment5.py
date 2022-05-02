@@ -1,7 +1,7 @@
 """
-Name: <Fill in your name>
+Name: Nicholas Loehrke and Dylan Brodie
 
-Course: CS1430, Section <Insert section here>,  Fall 2021
+Course: CS1430, Section 02,  Fall 2021
 
 Assignment: Assignment 5
 
@@ -16,10 +16,13 @@ Output:
 
 from distutils.util import strtobool
 
-from Assignment5.student.game import Game
+'''from Assignment5.student.game import Game
 from Assignment5.student.heap import Heap
-from Assignment5.student.player import Player
+from Assignment5.student.player import Player'''
 
+from game import Game
+from heap import Heap
+from player import Player
 
 def main():
     """"""
