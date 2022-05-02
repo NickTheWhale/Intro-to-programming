@@ -1,4 +1,3 @@
-
 class Rectangle_list:
     """
     Class that represents a list of rectangles
@@ -10,9 +9,6 @@ class Rectangle_list:
         self.__rect_lst.append(new_rectangle)
 
     def print_rect_list(self):
-        '''for i in range(len(self.__rect_lst)):
-            print(f'Rectangle {i+1}: ', end="")
-            self.__rect_lst[i].print_rectangle()'''
         for i in self.__rect_lst:
             i.print_rectangle()
 
