@@ -1,7 +1,7 @@
 """
 Name: Nicholas Loehrke and Dylan Brodie
 
-Course: CS1430, Section 02,  Fall 2021
+Course: CS1430, Section 02, Fall 2021
 
 Assignment: Assignment 5
 
