@@ -20,7 +20,7 @@ class Heap:
         :return
         :rtype
         """
-        pass
+        return self.__initial_size
 
     @property
     def current_size(self):

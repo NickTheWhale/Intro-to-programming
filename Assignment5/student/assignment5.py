@@ -173,7 +173,7 @@ def print_move(player_name, amount, heap_index):
     :return: None
     """
     pass
-
+    
 
 if __name__ == '__main__':
     main()

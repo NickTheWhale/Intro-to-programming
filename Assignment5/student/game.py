@@ -21,7 +21,7 @@ class Game:
         :return: turn_index
         :rtype: int
         """
-        pass
+        return self.__turn_index
 
     def get_player(self, player_index):
         """
@@ -31,7 +31,7 @@ class Game:
         :type
         :rtype
         """
-        pass
+        return self.__players[player_index]
 
     def get_heap(self, heap_index):
         """
@@ -49,7 +49,7 @@ class Game:
         :return
         :rtype
         """
-        pass
+        return len(self.__heaps)
 
     def add_player(self, player):
         """
@@ -58,7 +58,7 @@ class Game:
         :type
         :return: None
         """
-        pass
+        self.__players.append(player)
 
     def increment_turn(self):
         """
@@ -66,7 +66,10 @@ class Game:
         it sets turn_index to 0.
         :return: None
         """
-        pass
+        if self.__turn_index >= len(self.__players):
+            self.__turn_index = 0
+        else:
+            self.__turn_index += 1
 
     def add_heap(self, heap):
         """
@@ -75,7 +78,7 @@ class Game:
         :type
         :return: None
         """
-        pass
+        self.__heaps.append(heap)
 
     def update_heap(self, heap_index, amount):
         """
@@ -86,7 +89,7 @@ class Game:
         :type
         :return: None
         """
-        pass
+        self.__heaps[heap_index].remove(amount)
 
     def is_heap_empty(self, heap_index):
         """
@@ -96,7 +99,7 @@ class Game:
         :return: Returns true if the heap is empty, and false otherwise
         :rtype: boolean
         """
-        pass
+        return self.__heaps[heap_index] == 0
 
     def is_amount_valid(self, heap_index, amount):
         """
@@ -111,7 +114,7 @@ class Game:
         is less than or equal to the heap amount, and false otherwise<br>
         :rtype: boolean<br>
         """
-        pass
+        return amount <= self.__heaps[heap_index]
 
     def print_heaps(self):
         """
@@ -119,7 +122,8 @@ class Game:
         Heap <heap number> size: <current heap size>
         :return: None
         """
-        pass
+        for i in range(len(self.__heaps)):
+            print(f'Heap {i+1} size: {self.__heaps[i]}')
 
     def is_game_over(self):
         """
@@ -128,14 +132,19 @@ class Game:
         :return:
         :rtype
         """
-        pass
+        for amount in self.__heaps:
+            if amount > 0:
+                return False
+        return True
 
     def reset(self):
         """
         Resets the heap sizes to the initial_size, and sets turn_index to 0.
         :return: None
         """
-        pass
+        for i in range(len(self.__heaps)):
+            self.__heaps[i] = self.__heaps[i].__initial_size
+        self.__turn_index = 0
 
     def increment_player_score(self, player_index):
         """
