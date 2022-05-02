@@ -52,7 +52,7 @@ def main():
         boolean_string = input('Do you want to play another round? '
                                'True or False: ')
         user_continue = bool(strtobool(boolean_string))
-
+        
 
 def run_game(game):
     """

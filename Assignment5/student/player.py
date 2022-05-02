@@ -19,7 +19,7 @@ class Player:
         :return
         :rtype
         """
-        pass
+        return self.__name
 
     @property
     def score(self):
@@ -27,7 +27,7 @@ class Player:
         :return
         :rtype
         """
-        pass
+        return self.__score
 
     def increment_score(self):
         """
@@ -35,4 +35,4 @@ class Player:
         :return: updated score<br>
         :return: None
         """
-        pass
+        self.__score += 1

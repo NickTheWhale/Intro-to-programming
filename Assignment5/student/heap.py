@@ -28,7 +28,7 @@ class Heap:
         :return
         :rtype
         """
-        pass
+        return self.__current_size
 
     @initial_size.setter
     def initial_size(self, initial_size):
@@ -37,7 +37,7 @@ class Heap:
         :type
         :return: None
         """
-        pass
+        self.__initial_size = initial_size
 
     @current_size.setter
     def current_size(self, current_size):
@@ -45,7 +45,7 @@ class Heap:
         :param
         :type
         """
-        pass
+        self.__current_size = current_size
 
     def remove(self, amount):
         """
@@ -58,11 +58,15 @@ class Heap:
         was invalid
         :rtype
         """
-        pass
+        if self.__current_size - amount < 0:
+            return -1
+        else:
+            self.__current_size -= amount
+            return self.__current_size
 
     def reset(self):
         """
         Resets the current_size to the initial_size
         :return: None
         """
-        pass
+        self.__current_size = self.__initial_size
