@@ -5,7 +5,8 @@ class Game:
     """
     def __init__(self):
         """
-        Constructor creates an empty list of heaps and an empty list of players, and sets the turn_index to 0.
+        Constructor creates an empty list of heaps and an empty list of players,
+        and sets the turn_index to 0.
         turn_index represents which player's turn it is.
         """
         self.__heaps = []

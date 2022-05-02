@@ -12,18 +12,6 @@ class Rectangle:
     def print_rectangle(self):
         print(f'Length is {self.__length}, width is {self.__width}')
 
-    def set_width(self, width):
-        self.__width = width
-
-    def set_length(self, length):
-        self.__length = length
-
-    def get_width(self):
-        return self.__width
-
-    def get_length(self):
-        return self.__length
-
     def area(self):
         return self.__length * self.__width
 
@@ -47,15 +35,12 @@ class Rectangle:
         self.__length = length
 
 
-
-
-
 def main():
     previous_time = time.time()
     num_of_rectangles = 5000000
     rect = [Rectangle() for i in range(num_of_rectangles)]
     elapsed_time = time.time() - previous_time
-    print(elapsed_time)
+    print(round(elapsed_time, 4))
 
     '''for i in range(num_of_rectangles):
         rect[i].print_rectangle()'''
