@@ -16,13 +16,31 @@ Output: game
 
 from distutils.util import strtobool
 
-# for gradescope 
+try:
+    from game import Game
+    from heap import Heap
+    from player import Player
+except ModuleNotFoundError:
+    from student.game import Game
+    from student.heap import Heap
+    from student.player import Player
+
+'''try:
+    from student.game import Game
+    from student.heap import Heap
+    from student.player import Player
+except ModuleNotFoundError:
+    from game import Game
+    from heap import Heap
+    from player import Player'''
+
+'''# for gradescope 
 from student.game import Game
 from student.heap import Heap
 from student.player import Player
 
 # for testing
-'''from game import Game
+from game import Game
 from heap import Heap
 from player import Player'''
 
