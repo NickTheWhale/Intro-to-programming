@@ -17,8 +17,6 @@ class Game:
     def turn_index(self):
         """
         Getter method that returns the current turn_index.
-        """
-        """
         :return: turn_index
         :rtype: int
         """
@@ -63,7 +61,8 @@ class Game:
 
     def increment_turn(self):
         """
-        Increments the turn_index by 1. If the turn_index is greater than or equal to the number of players,
+        Increments the turn_index by 1. If the turn_index is 
+        greater than or equal to the number of players,
         it sets turn_index to 0.
         :return: None
         """
@@ -95,12 +94,14 @@ class Game:
 
     def is_heap_empty(self, heap_index):
         """
-        Checks if the heap has a value of 0 and returns a True if it is empty and a False otherwise.
+        Checks if the heap has a value of 0 and returns a True 
+        if it is empty and a False otherwise.
         :param heap_index: Index of the heap
         :type
         :return: Returns true if the heap is empty, and false otherwise
         :rtype: boolean
         """
+        # why is this failing gradescope?
         return self.__heaps[heap_index] == 0
 
     def is_amount_valid(self, heap_index, amount):
@@ -129,7 +130,8 @@ class Game:
 
     def is_game_over(self):
         """
-        Boolean function returns if the game is over. Goes through all of the heaps to see if all of the heap
+        Boolean function returns if the game is over. 
+        Goes through all of the heaps to see if all of the heap
         sizes are 0.
         :return:
         :rtype
@@ -151,7 +153,8 @@ class Game:
 
     def increment_player_score(self, player_index):
         """
-        increments the player's score in the player list indicated by player_index by 1.
+        increments the player's score in the player list 
+        indicated by player_index by 1.
         :param player_index:
         :type
         :return: None
@@ -165,7 +168,7 @@ class Game:
         :return: None
         """
         for i in range(len(self.__players)):
-            print(f'Player {i+1} score {self.__players[i].score}')
+            print(f'Player {i+1} score: {self.__players[i].score}')
 
     def print_round_winner(self):
         """
@@ -174,4 +177,5 @@ class Game:
         :return: None
         """
         # TODO determine winning player
-        print(f'Player {self.__players[self.__turn_index].name} has won this round!')
+        print(f'Player {self.__players[self.__turn_index].name} '
+              f'has won this round!')

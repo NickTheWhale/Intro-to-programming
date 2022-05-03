@@ -16,10 +16,12 @@ Output: game
 
 from distutils.util import strtobool
 
+# for gradescope 
 from student.game import Game
 from student.heap import Heap
 from student.player import Player
 
+# for testing
 '''from game import Game
 from heap import Heap
 from player import Player'''
@@ -168,7 +170,7 @@ def add_heaps(number_of_heaps, game):
     :return: None
     """
     for i in range(number_of_heaps):
-        heap_size = int(input(f'Enter size for heap {i+1}: '))
+        heap_size = int(input(f'Enter a size for heap {i+1}: '))
         game.add_heap(Heap(heap_size))
 
 
