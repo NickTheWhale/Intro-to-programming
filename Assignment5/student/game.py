@@ -146,7 +146,6 @@ class Game:
         Resets the heap sizes to the initial_size, and sets turn_index to 0.
         :return: None
         """
-        print("resetting")
         for i in range(len(self.__heaps)):
             self.__heaps[i].current_size = self.__heaps[i].initial_size
         self.__turn_index = 0
@@ -176,8 +175,5 @@ class Game:
         Player <player name> has won this round!
         :return: None
         """
-        if self.__players[self.__turn_index].name == "bob":
-            print(f'Player Bob has won this round!')
-        else:
-            print(f'Player {self.__players[self.__turn_index].name} '
-                f'has won this round!')
+        print(f'Player {self.__players[self.__turn_index].name} '
+              f'has won this round!')
