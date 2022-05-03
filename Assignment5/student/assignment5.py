@@ -91,6 +91,7 @@ def take_turn(game):
     print_move(current_player_name, amount, heap_index)
 
     # update heap - currently ignoring the value returned
+    # should we ignore the value?
     game.update_heap(heap_index, amount)
     game.print_heaps()
 
