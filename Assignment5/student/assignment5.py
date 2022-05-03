@@ -28,9 +28,12 @@ def main():
     """"""
     # assumes valid input
     number_of_players = int(input("Enter the number of players: "))
-
+    
     # assumes valid input
     number_of_heaps = int(input("Enter the number of heaps: "))
+    
+    # assumes valid input
+    
 
     # Create an instance of a game class
     game = Game()
@@ -41,6 +44,9 @@ def main():
     # Call run_game
     run_game(game)
 
+    # print round winner
+    game.print_round_winner()
+    
     boolean_string = input('Do you want to play another round? '
                            'True or False: ')
     user_continue = bool(strtobool(boolean_string))
@@ -48,7 +54,8 @@ def main():
     while user_continue:
         game.reset()
         run_game(game)
-
+        game.print_round_winner()
+        
         boolean_string = input('Do you want to play another round? '
                                'True or False: ')
         user_continue = bool(strtobool(boolean_string))
@@ -63,8 +70,9 @@ def run_game(game):
     :type
     :return: None
     """
-    pass
-
+    game.print_heaps()
+    while not game.is_game_over():
+        take_turn(game)
 
 
 def take_turn(game):
@@ -144,7 +152,9 @@ def add_players(number_of_players, game):
     :type
     :return: None
     """
-    pass
+    for i in range(number_of_players):
+        player_name = input(f'Enter a name for player {i+1}: ')
+        game.add_player(Player(player_name))
 
 
 def add_heaps(number_of_heaps, game):
@@ -157,7 +167,9 @@ def add_heaps(number_of_heaps, game):
     :type
     :return: None
     """
-    pass
+    for i in range(number_of_heaps):
+        heap_size = int(input(f'Enter size for heap {i+1}: '))
+        game.add_heap(Heap(heap_size))
 
 
 def print_move(player_name, amount, heap_index):
@@ -172,7 +184,7 @@ def print_move(player_name, amount, heap_index):
     :type
     :return: None
     """
-    pass
+    print(f'{player_name} takes {amount} from heap {heap_index+1}')
     
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 class Player:
     """
-    Brief description of class
-    author(s):
+    Class to store player name and score
+    author(s): 
     :param
     :type
     """

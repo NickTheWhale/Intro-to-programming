@@ -67,7 +67,7 @@ class Game:
         it sets turn_index to 0.
         :return: None
         """
-        if self.__turn_index >= len(self.__players):
+        if self.__turn_index >= len(self.__players) - 1:
             self.__turn_index = 0
         else:
             self.__turn_index += 1
@@ -90,6 +90,7 @@ class Game:
         :type
         :return: None
         """
+        # should i use .remove method or 'heap[index] -= amount'
         self.__heaps[heap_index].remove(amount)
 
     def is_heap_empty(self, heap_index):
@@ -115,7 +116,7 @@ class Game:
         is less than or equal to the heap amount, and false otherwise<br>
         :rtype: boolean<br>
         """
-        return amount <= self.__heaps[heap_index]
+        return amount <= self.__heaps[heap_index].current_size and amount > 0
 
     def print_heaps(self):
         """
@@ -124,7 +125,7 @@ class Game:
         :return: None
         """
         for i in range(len(self.__heaps)):
-            print(f'Heap {i+1} size: {self.__heaps[i]}')
+            print(f'Heap {i+1} size: {self.__heaps[i].current_size}')
 
     def is_game_over(self):
         """
@@ -134,7 +135,7 @@ class Game:
         :rtype
         """
         for amount in self.__heaps:
-            if amount > 0:
+            if amount.current_size > 0:
                 return False
         return True
 
@@ -143,9 +144,9 @@ class Game:
         Resets the heap sizes to the initial_size, and sets turn_index to 0.
         :return: None
         """
+        print("resetting")
         for i in range(len(self.__heaps)):
-            # can i do this?
-            self.__heaps[i] = self.__heaps[i].__initial_size
+            self.__heaps[i].current_size = self.__heaps[i].initial_size
         self.__turn_index = 0
 
     def increment_player_score(self, player_index):
@@ -155,7 +156,6 @@ class Game:
         :type
         :return: None
         """
-        # can i do this too?
         self.__players[player_index].increment_score()
 
     def print_player_scores(self):
@@ -165,7 +165,7 @@ class Game:
         :return: None
         """
         for i in range(len(self.__players)):
-            print(f'Player {i+1} score {self.__players.score}')
+            print(f'Player {i+1} score {self.__players[i].score}')
 
     def print_round_winner(self):
         """
@@ -174,4 +174,4 @@ class Game:
         :return: None
         """
         # TODO determine winning player
-        print(f'Player <insert player name here> has won this round!')
+        print(f'Player {self.__players[self.__turn_index].name} has won this round!')
