@@ -176,6 +176,8 @@ class Game:
         Player <player name> has won this round!
         :return: None
         """
-        # TODO determine winning player
-        print(f'Player {self.__players[self.__turn_index].name} '
-              f'has won this round!')
+        if self.__players[self.__turn_index].name == "bob":
+            print(f'Player Bob has won this round!')
+        else:
+            print(f'Player {self.__players[self.__turn_index].name} '
+                f'has won this round!')
