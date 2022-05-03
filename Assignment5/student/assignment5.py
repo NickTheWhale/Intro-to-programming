@@ -5,11 +5,11 @@ Course: CS1430, Section 02, Fall 2021
 
 Assignment: Assignment 5
 
-Purpose:
+Purpose: game
 
-Input:
+Input: game
 
-Output:
+Output: game
 
 """
 
@@ -33,7 +33,6 @@ def main():
     number_of_heaps = int(input("Enter the number of heaps: "))
     
     # assumes valid input
-    
 
     # Create an instance of a game class
     game = Game()
