@@ -16,13 +16,13 @@ Output:
 
 from distutils.util import strtobool
 
-'''from Assignment5.student.game import Game
-from Assignment5.student.heap import Heap
-from Assignment5.student.player import Player'''
+from student.game import Game
+from student.heap import Heap
+from student.player import Player
 
-from game import Game
+'''from game import Game
 from heap import Heap
-from player import Player
+from player import Player'''
 
 def main():
     """"""
