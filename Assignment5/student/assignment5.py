@@ -5,7 +5,7 @@ Course: CS1430, Section 02, Fall 2021
 
 Assignment: Assignment 5
 
-Purpose: game
+Purpose: play game
 
 Input: game
 

@@ -3,6 +3,7 @@ class Game:
     Game class simulates a game
     author(s):
     """
+    
     def __init__(self):
         """
         Constructor creates an empty list of heaps and an empty list of players,
