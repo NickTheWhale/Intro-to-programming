@@ -25,25 +25,6 @@ except ModuleNotFoundError:
     from student.heap import Heap
     from student.player import Player
 
-'''try:
-    from student.game import Game
-    from student.heap import Heap
-    from student.player import Player
-except ModuleNotFoundError:
-    from game import Game
-    from heap import Heap
-    from player import Player'''
-
-'''# for gradescope 
-from student.game import Game
-from student.heap import Heap
-from student.player import Player
-
-# for testing
-from game import Game
-from heap import Heap
-from player import Player'''
-
 def main():
     """"""
     # assumes valid input
@@ -66,6 +47,8 @@ def main():
     # print round winner
     game.print_round_winner()
     
+    game.print_player_scores()
+    
     boolean_string = input('Do you want to play another round? '
                            'True or False: ')
     user_continue = bool(strtobool(boolean_string))
@@ -74,6 +57,7 @@ def main():
         game.reset()
         run_game(game)
         game.print_round_winner()
+        game.print_player_scores()
         
         boolean_string = input('Do you want to play another round? '
                                'True or False: ')

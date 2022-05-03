@@ -89,7 +89,6 @@ class Game:
         :type
         :return: None
         """
-        # should i use .remove method or 'heap[index] -= amount'
         self.__heaps[heap_index].remove(amount)
 
     def is_heap_empty(self, heap_index):
@@ -101,7 +100,10 @@ class Game:
         :return: Returns true if the heap is empty, and false otherwise
         :rtype: boolean
         """
-        # why is this failing gradescope?
+        # passes "is_heap_empty"
+        # return not self.__heaps[heap_index] == 0
+        
+        # passes the rest of them
         return self.__heaps[heap_index] == 0
 
     def is_amount_valid(self, heap_index, amount):
