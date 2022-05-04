@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="deeaca38-e7d8-4593-8dd0-b432cc42114e" name="Default Changelist" comment="lab 8">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assignment5/student/assignment5.py" beforeDir="false" afterPath="$PROJECT_DIR$/Assignment5/student/assignment5.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +69,7 @@
       <recent name="J:\programming\PycharmProjects\Lab8\student" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.lab08">
+  <component name="RunManager" selected="Python.assignment5 (2)">
     <configuration name="assignment5 (1)" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pycharm Projects" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -181,10 +182,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.assignment5 (2)" />
         <item itemvalue="Python.lab08" />
         <item itemvalue="Python.rectangle_driver" />
         <item itemvalue="Python.rectangle" />
-        <item itemvalue="Python.assignment5 (2)" />
         <item itemvalue="Python.assignment5 (1)" />
       </list>
     </recent_temporary>
@@ -206,7 +207,8 @@
       <workItem from="1651072204810" duration="362000" />
       <workItem from="1651072600797" duration="2229000" />
       <workItem from="1651244141668" duration="3360000" />
-      <workItem from="1651503844702" duration="2819000" />
+      <workItem from="1651503844702" duration="2880000" />
+      <workItem from="1651676460853" duration="355000" />
     </task>
     <task id="LOCAL-00001" summary="e">
       <created>1646970936520</created>
@@ -481,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651505738039</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="lab 8">
+      <created>1651506711435</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1651506711435</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -527,7 +536,7 @@
     <option name="LAST_COMMIT_MESSAGE" value="lab 8" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/PycharmProjects$assignment5__2_.coverage" NAME="assignment5 (2) Coverage Results" MODIFIED="1651244239759" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assignment5/student" />
+    <SUITE FILE_PATH="coverage/PycharmProjects$assignment5__2_.coverage" NAME="assignment5 (2) Coverage Results" MODIFIED="1651676488196" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assignment5/student" />
     <SUITE FILE_PATH="coverage/PycharmProjects$assignment5.coverage" NAME="assignment5 Coverage Results" MODIFIED="1651072312396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assignment5" />
     <SUITE FILE_PATH="coverage/PycharmProjects$lab08.coverage" NAME="lab08 Coverage Results" MODIFIED="1651506686764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Lab8/student" />
     <SUITE FILE_PATH="coverage/PycharmProjects$rectangle_driver.coverage" NAME="rectangle_driver Coverage Results" MODIFIED="1651505184646" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Assignment5/student" />

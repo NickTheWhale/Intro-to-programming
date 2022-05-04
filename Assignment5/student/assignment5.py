@@ -25,6 +25,7 @@ except ModuleNotFoundError:
     from student.heap import Heap
     from student.player import Player
 
+
 def main():
     """"""
     # assumes valid input
@@ -32,8 +33,6 @@ def main():
     
     # assumes valid input
     number_of_heaps = int(input("Enter the number of heaps: "))
-    
-    # assumes valid input
 
     # Create an instance of a game class
     game = Game()
