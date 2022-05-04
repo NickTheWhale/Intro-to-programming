@@ -101,11 +101,7 @@ class Game:
         :return: Returns true if the heap is empty, and false otherwise
         :rtype: boolean
         """
-        # passes "is_heap_empty"
-        # return not self.__heaps[heap_index] == 0
-        
-        # passes the rest of them
-        return self.__heaps[heap_index] == 0
+        return self.__heaps[heap_index].current_size == 0
 
     def is_amount_valid(self, heap_index, amount):
         """
@@ -120,7 +116,7 @@ class Game:
         is less than or equal to the heap amount, and false otherwise<br>
         :rtype: boolean<br>
         """
-        return amount <= self.__heaps[heap_index].current_size and amount > 0
+        return self.__heaps[heap_index].current_size >= amount > 0
 
     def print_heaps(self):
         """
@@ -139,6 +135,7 @@ class Game:
         :return:
         :rtype
         """
+        # not a count control problem
         for amount in self.__heaps:
             if amount.current_size > 0:
                 return False

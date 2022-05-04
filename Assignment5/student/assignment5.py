@@ -44,9 +44,8 @@ def main():
     run_game(game)
 
     # print round winner
-    game.print_round_winner()
-    
-    game.print_player_scores()
+    # game.print_round_winner()
+    # game.print_player_scores()
     
     boolean_string = input('Do you want to play another round? '
                            'True or False: ')
@@ -55,8 +54,8 @@ def main():
     while user_continue:
         game.reset()
         run_game(game)
-        game.print_round_winner()
-        game.print_player_scores()
+        # game.print_round_winner()
+        # game.print_player_scores()
         
         boolean_string = input('Do you want to play another round? '
                                'True or False: ')
@@ -75,6 +74,8 @@ def run_game(game):
     game.print_heaps()
     while not game.is_game_over():
         take_turn(game)
+    game.print_round_winner()
+    game.print_player_scores()
 
 
 def take_turn(game):
@@ -92,8 +93,8 @@ def take_turn(game):
 
     print_move(current_player_name, amount, heap_index)
 
-    # update heap - currently ignoring the value returned
-    # should we ignore the value?
+    # update heap - currently ignoring the value returned -Donna
+    # should we ignore the value? -Nick
     game.update_heap(heap_index, amount)
     game.print_heaps()
 
