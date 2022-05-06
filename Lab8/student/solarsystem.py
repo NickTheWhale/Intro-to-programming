@@ -5,9 +5,10 @@ class SolarSystem:
     """
     def __init__(self, a_sun):
         """
-        Default constructor for a solar system
-        :param a_sun: sun object
-        :type a_sun:
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         self.__the_sun = a_sun
         self.__planets = []
@@ -15,44 +16,47 @@ class SolarSystem:
     @property
     def the_sun(self):
         """
-        Getter (accessor), returns the name of the sun
-        :return: sun object
-        :rtype: string
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         return self.__the_sun
 
     @property
     def planets(self):
         """
-        Getter (accessor),returns the list of planets in this solar system
-        :return: the list of planets in this solar system
-        :rtype: a list
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         return self.__planets
 
     def get_planet(self, planet_index):
         """
-        Returns the planet object at index planet_index
-        :param planet_index: the index of the planet
-        :type
-        :return: planet object
-        :rtype
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         return self.__planets[planet_index]
 
     def add_planet(self, a_planet):
         """
-        Adds a planet to the solar system
-        :param a_planet: Planet object
-        :type a_planet: object
-        :return: None
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         self.__planets.append(a_planet)
 
     def show_planets(self):
         """
-        Prints the name of all of the planets in this solar system
-        :return: None
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         for a_planet in self.planets:
             print(f"{a_planet} Moons: ",  end="")
@@ -64,18 +68,19 @@ class SolarSystem:
 
     def num_planets(self):
         """
-        Returns the number of planets in this solar system
-        :return: length of planet list
-        :rtype: int
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         return len(self.planets)
 
     def get_total_mass(self):
         """
-        Returns the mass of all of the sun and planets in this solar system, not
-        including moons
-        :return: total mass
-        :rtype: float
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         total_mass = self.the_sun.mass
         for a_planet in self.__planets:
@@ -84,10 +89,10 @@ class SolarSystem:
 
     def remove_planet(self, planet_name):
         """
-        Removes a planet named planet_name from this solar system
-        :param planet_name: planet name to remove
-        :type planet_name: String
-        :return: None
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         for a_planet in self.__planets:
             if planet_name == a_planet.name:
@@ -95,9 +100,10 @@ class SolarSystem:
 
     def get_nearest(self):
         """
-        Returns the
-        :return:
-        :rtype
+        :return: radius
+        :rtype:
+        :param:
+        :type:
         """
         d_min = self.planets[0].distance
         for i in range(1, len(self.planets)):
@@ -107,9 +113,10 @@ class SolarSystem:
 
     def get_farthest(self):
         """
-        Returns the farthest planet
-        :return:
+        :return: radius
         :rtype:
+        :param:
+        :type:
         """
         d_max = self.planets[0].distance
         for i in range(1, len(self.planets)):

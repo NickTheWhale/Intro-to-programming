@@ -74,38 +74,92 @@ class Planet:
 
     @property
     def radius(self):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         return self.__radius
 
     @radius.setter
     def radius(self, x):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         self.__radius = x
 
     @property
     def mass(self):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         return self.__radius
 
     @mass.setter
     def mass(self, x):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         self.__mass = x
 
     @property
     def distance(self):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         return self.__distance
 
     @distance.setter
     def distance(self, x):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         self.__distance = x
 
     @property
     def moons(self):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         return self.__moons
 
     @moons.setter
     def num_moons(self, x):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         self.__moons = x
 
     @property
     def moon_list(self):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         return self.__moon_list
 
     # DO_04: Create the Accessor (getter) and mutator (setter) methods for each
@@ -135,16 +189,46 @@ class Planet:
     #       (2 times PI times radius)
 
     def add_moon(self, new_moon):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         self.__moon_list.append(new_moon)
 
     def get_volume(self):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         return (4/3) * math.pi * (self.radius * self.radius)
 
     def get_surface_area(self):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         return 4 * math.pi * (self.radius * self.radius)
 
     def get_density(self):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         return self.mass / self.get_volume()
 
     def get_circumference(self):
+        """
+        :return: radius
+        :rtype:
+        :param:
+        :type:
+        """
         return 2 * math.pi * self.radius
