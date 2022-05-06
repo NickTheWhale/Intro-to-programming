@@ -117,11 +117,13 @@ class SolarSystem:
         :param:
         :type:
         """
+        p_min = self.planets[0].name
         d_min = self.planets[0].distance
         for i in range(1, len(self.planets)):
             if self.planets[i].distance < d_min:
                 d_min = self.planets[i].distance
-        return d_min
+                p_min = self.planets[i].name
+        return p_min
 
     def get_farthest(self):
         """
@@ -131,8 +133,10 @@ class SolarSystem:
         :param:
         :type:
         """
+        p_max = self.planets[0].name
         d_max = self.planets[0].distance
         for i in range(1, len(self.planets)):
             if self.planets[i].distance > d_max:
                 d_max = self.planets[i].distance
-        return d_max
+                p_max = self.planets[i].name
+        return p_max

@@ -99,8 +99,9 @@ def main():
     """                  my testing stuff                   """
     
     
-    # print(f'farthest: {ss.get_farthest()}')
-    ss.show_planets()
+    print(f'farthest: {ss.get_farthest()}')
+    print(f'closest: {ss.get_nearest()}')
+    # ss.show_planets()
 
 
 if __name__ == "__main__":
