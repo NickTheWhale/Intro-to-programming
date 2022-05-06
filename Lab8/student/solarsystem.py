@@ -62,7 +62,6 @@ class SolarSystem:
                 else:
                     print(f"{a_planet.moon_list[i]}, ", end="")
 
-
     def num_planets(self):
         """
         Returns the number of planets in this solar system
@@ -100,7 +99,11 @@ class SolarSystem:
         :return:
         :rtype
         """
-        return min(self.planets)
+        d_min = self.planets[0].distance
+        for i in range(1, len(self.planets)):
+            if self.planets[i].distance < d_min:
+                d_min = self.planets[i].distance
+        return d_min
 
     def get_farthest(self):
         """
@@ -108,4 +111,8 @@ class SolarSystem:
         :return:
         :rtype:
         """
-        return max(self.planets)
+        d_max = self.planets[0].distance
+        for i in range(1, len(self.planets)):
+            if self.planets[i].distance > d_max:
+                d_max = self.planets[i].distance
+        return d_max

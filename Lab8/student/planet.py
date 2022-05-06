@@ -23,7 +23,7 @@ class Planet:
     The planet object represents a planet in the solar system.
     author(s): Donna Gavin
     """
-    def __init__(self, i_name, i_radius, i_mass, i_dist, i_moons):
+    def __init__(self, i_name, i_radius, i_mass, i_dist, i_num_moons):
         """
         Default Constructor
         :param i_name: Name of the planet
@@ -34,14 +34,14 @@ class Planet:
         :type i_mass: int
         :param i_dist: planet distance from the sun
         :type i_dist: int
-        :param i_moons: number of moons
-        :type i_moons: int
+        :param i_num_moons: number of moons
+        :type i_num_moons: int
         """
         self.__name = i_name
         self.__radius = i_radius
         self.__mass = i_mass
         self.__distance = i_dist
-        self.__moons = i_moons
+        self.__num_moons = i_num_moons
         self.__moon_list = []
 
         # DO_03: Add the following attributes (variables) for the Planet class,
@@ -101,7 +101,7 @@ class Planet:
         return self.__moons
 
     @moons.setter
-    def moons(self, x):
+    def num_moons(self, x):
         self.__moons = x
 
     @property
@@ -122,7 +122,6 @@ class Planet:
     #  function header of the setter method. See the example above for the
     #  attribute name.
 
-
     # DO_04: Create the following methods for the Planet class.
     # 2.	add_moon method to append the name of a new_moon to the end of
     #       moon_list.
@@ -139,13 +138,13 @@ class Planet:
         self.__moon_list.append(new_moon)
 
     def get_volume(self):
-        return (4/3) * math.pi * (self.__radius * self.__radius)
+        return (4/3) * math.pi * (self.radius * self.radius)
 
     def get_surface_area(self):
-        return 4 * math.pi * (self.__radius * self.__radius)
+        return 4 * math.pi * (self.radius * self.radius)
 
     def get_density(self):
-        return self.__mass / self.get_volume()
+        return self.mass / self.get_volume()
 
     def get_circumference(self):
-        return 2 * math.pi * self.__radius
+        return 2 * math.pi * self.radius

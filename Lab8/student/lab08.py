@@ -1,6 +1,6 @@
 """
-Name:       <Fill in your name>
-Course:     CS1430, Section <Insert section here>,  Spring 2022
+Name:       Nicholas Loehrke
+Course:     CS1430, Section 02,  Spring 2022
 Assignment: Lab 08
 Purpose:    This program implements a solar system. It uses the classes
             solarsystem.py, sun.py, planet.py
@@ -11,9 +11,14 @@ Output:     Information about the planets in the solar system, and a
 #########################
 # IMPORTS
 #########################
-from Lab8.student.sun import *
-from Lab8.student.planet import *
-from Lab8.student.solarsystem import *
+try:
+    from Lab8.student.sun import *
+    from Lab8.student.planet import *
+    from Lab8.student.solarsystem import *
+except ModuleNotFoundError:
+    from student.sun import *
+    from student.planet import *
+    from student.solarsystem import *
 
 
 def print_table():
