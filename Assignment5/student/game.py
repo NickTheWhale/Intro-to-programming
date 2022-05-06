@@ -1,7 +1,7 @@
 class Game:
     """
     Game class simulates a game
-    author(s):
+    author(s): Dylan Brodie and Nicholas Loehrke
     """
     
     def __init__(self):

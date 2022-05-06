@@ -1,7 +1,7 @@
 class Player:
     """
     Class to store player name and score
-    author(s): 
+    author(s): Nicholas Loehrke and Dylan Brodie
     :param
     :type
     """

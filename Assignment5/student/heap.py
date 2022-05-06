@@ -1,7 +1,7 @@
 class Heap:
     """
     Brief description of class
-    author(s):
+    author(s): Dylan Brodie and Nicholas Loehrke
     :param
     :type
     """

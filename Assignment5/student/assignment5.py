@@ -5,11 +5,23 @@ Course: CS1430, Section 02, Fall 2021
 
 Assignment: Assignment 5
 
-Purpose: play game
+Purpose: 
+1. To understand how to construct a class
+2. To write constructors, accessor methods, 
+mutator methods, and special methods
+3. To understand the concept of self
+4. To explore instance data
 
-Input: game
+Input: 
+1. player names
+2. number of heaps
+3. size of heaps
+4. heap index
+5. how much to remove from specified heap
 
-Output: game
+Output:
+1. heap status
+2. round winner
 
 """
 
