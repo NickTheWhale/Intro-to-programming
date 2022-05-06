@@ -11,14 +11,21 @@ Output:     Information about the planets in the solar system, and a
 #########################
 # IMPORTS
 #########################
+from ast import Mod
+
 try:
     from Lab8.student.sun import *
     from Lab8.student.planet import *
     from Lab8.student.solarsystem import *
 except ModuleNotFoundError:
-    from student.sun import *
-    from student.planet import *
-    from student.solarsystem import *
+    try:
+        from student.sun import *
+        from student.planet import *
+        from student.solarsystem import *
+    except ModuleNotFoundError:
+        from sun import *
+        from planet import *
+        from solarsystem import *
 
 
 def print_table():
@@ -46,8 +53,10 @@ def main():
     planets in the solar system including the sun, but not the moons. It prints
     the name of the farthest planet from the sun, and the closest planet from
     the sun.
-    :return:
+    :return: 
     :rtype:
+    :param:
+    :type:
     """
     # Create a sun object
     sun = Sun("Sun", 5000, 1000, 5800)
@@ -84,6 +93,14 @@ def main():
     print(f"Nearest planet to sun: {ss.get_nearest()}")
     print()
     print_table()
+    
+    
+    
+    """                  my testing stuff                   """
+    
+    
+    # print(f'farthest: {ss.get_farthest()}')
+    ss.show_planets()
 
 
 if __name__ == "__main__":

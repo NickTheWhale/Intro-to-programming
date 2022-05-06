@@ -1,6 +1,6 @@
 """
-Name:       DO_01: <Fill in your name>
-Course:     CS1430, Section DO_02 :<Insert section here>,  Spring 2022
+Name:       DO_01: Nicholas Loehrke
+Course:     CS1430, Section DO_02 :02,  Spring 2022
 Assignment: Lab 08
 Purpose:    This program implements a solar system. It uses the classes
             solarsystem.py, sun.py, planet.py
@@ -60,6 +60,8 @@ class Planet:
         Getter (accessor) for the planet name
         :return: the planet name
         :rtype: String
+        :param:
+        :type:
         """
         return self.__name
     
@@ -69,14 +71,17 @@ class Planet:
         Setter (mutator) for the planet name
         :param new_name: New planet name
         :return: None
+        :rtype:
+        :type:
         """
         self.__name = new_name
 
     @property
     def radius(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the planet radius
+        :return: the planet radius
+        :rtype: Int
         :param:
         :type:
         """
@@ -85,9 +90,10 @@ class Planet:
     @radius.setter
     def radius(self, x):
         """
-        :return: radius
+        Setter (mutator) for the planet radius
+        :param radius: New planet name
+        :return: None
         :rtype:
-        :param:
         :type:
         """
         self.__radius = x
@@ -95,19 +101,21 @@ class Planet:
     @property
     def mass(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the planet mass
+        :return: the planet mass
+        :rtype: Int
         :param:
         :type:
         """
-        return self.__radius
+        return self.__mass
 
     @mass.setter
     def mass(self, x):
         """
-        :return: radius
+        Setter (mutator) for the planet mass
+        :param mass: New planet mass
+        :return: None
         :rtype:
-        :param:
         :type:
         """
         self.__mass = x
@@ -115,8 +123,9 @@ class Planet:
     @property
     def distance(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the planet distance from the sun
+        :return: the planet distance from the sun
+        :rtype: Int
         :param:
         :type:
         """
@@ -125,38 +134,42 @@ class Planet:
     @distance.setter
     def distance(self, x):
         """
-        :return: radius
+        Setter (mutator) for the planet distance from the sun
+        :param distance: New planet distance
+        :return: None
         :rtype:
-        :param:
         :type:
         """
         self.__distance = x
 
     @property
-    def moons(self):
+    def num_moons(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the planet number of moons
+        :return: the planet number of moons
+        :rtype: Int
         :param:
         :type:
         """
-        return self.__moons
+        return self.__num_moons
 
-    @moons.setter
+    @num_moons.setter
     def num_moons(self, x):
         """
-        :return: radius
+        Setter (mutator) for the planet number of moons
+        :param num_moons: New planet number of moons
+        :return: None
         :rtype:
-        :param:
         :type:
         """
-        self.__moons = x
+        self.__num_moons = x
 
     @property
     def moon_list(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for list of moons for each planet
+        :return: the list of moons for each planet
+        :rtype: List
         :param:
         :type:
         """
@@ -190,7 +203,8 @@ class Planet:
 
     def add_moon(self, new_moon):
         """
-        :return: radius
+        Adds a new moon to the list of moons
+        :return: None
         :rtype:
         :param:
         :type:
@@ -199,17 +213,19 @@ class Planet:
 
     def get_volume(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the planet volume
+        :return: the planet volume
+        :rtype: Int
         :param:
         :type:
         """
-        return (4/3) * math.pi * (self.radius * self.radius)
+        return (4/3) * math.pi * (self.radius * self.radius * self.radius)
 
     def get_surface_area(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the planet surface area
+        :return: the planet surface area
+        :rtype: Int
         :param:
         :type:
         """
@@ -217,8 +233,9 @@ class Planet:
 
     def get_density(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the planet density
+        :return: the planet density
+        :rtype: Int
         :param:
         :type:
         """
@@ -226,8 +243,9 @@ class Planet:
 
     def get_circumference(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the planet circumference
+        :return: the planet circumference
+        :rtype: Int
         :param:
         :type:
         """

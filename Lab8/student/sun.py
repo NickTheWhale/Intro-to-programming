@@ -29,8 +29,9 @@ class Sun:
     @property
     def name(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the name of the sun
+        :return: name
+        :rtype: String
         :param:
         :type:
         """
@@ -39,8 +40,9 @@ class Sun:
     @property
     def mass(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the mass
+        :return: mass
+        :rtype: int
         :param:
         :type:
         """
@@ -49,8 +51,9 @@ class Sun:
     @property
     def radius(self):
         """
+        Getter (accessor) for the radius
         :return: radius
-        :rtype:
+        :rtype: int
         :param:
         :type:
         """
@@ -59,8 +62,9 @@ class Sun:
     @property
     def temperature(self):
         """
-        :return: radius
-        :rtype:
+        Getter (accessor) for the temp
+        :return: temp
+        :rtype: int
         :param:
         :type:
         """
@@ -69,27 +73,30 @@ class Sun:
     @name.setter
     def name(self, new_name):
         """
-        :return: radius
-        :rtype:
-        :param:
-        :type:
+        Setter (mutator) for the name of the sun
+        :param new_name: new name
+        :type
+        :return: new_name
+        :rtype: String
         """
         self.__name = new_name
 
     @radius.setter
     def radius(self, new_radius):
         """
+        Setter (mutator) for the radius of the sun
+        :param new_radius:
+        :type
         :return: radius
-        :rtype:
-        :param:
-        :type:
+        :rtype: int
         """
         self.__radius = new_radius
 
     def get_volume(self):
         """
-        :return: radius
-        :rtype:
+        Calculates the volume of the sun as a sphere
+        :return: volume
+        :rtype: float
         :param:
         :type:
         """
@@ -98,8 +105,9 @@ class Sun:
 
     def get_surface_area(self):
         """
-        :return: radius
-        :rtype:
+        Calculates the surface of the sun as a sphere
+        :return: surface area
+        :rtype: float
         :param:
         :type:
         """
@@ -108,8 +116,9 @@ class Sun:
 
     def get_density(self):
         """
-        :return: radius
-        :rtype:
+        Calculates the density of the sun as a sphere
+        :return: density
+        :rtype: float
         :param:
         :type:
         """
@@ -118,8 +127,12 @@ class Sun:
 
     def __str__(self):
         """
-        :return: radius
-        :rtype:
+        Returns the name of the sun as a string.
+        Assuming you have a sun object named mySun created with a name of
+        "Sun", this allows you to use the following format as input:
+        mySun.__str__()  # calls the __str__ method and prints "Sun"
+        :return: name of the sun
+        :rtype: string
         :param:
         :type:
         """
