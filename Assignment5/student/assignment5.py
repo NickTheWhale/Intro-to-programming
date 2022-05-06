@@ -54,10 +54,6 @@ def main():
 
     # Call run_game
     run_game(game)
-
-    # print round winner
-    # game.print_round_winner()
-    # game.print_player_scores()
     
     boolean_string = input('Do you want to play another round? '
                            'True or False: ')
@@ -66,8 +62,6 @@ def main():
     while user_continue:
         game.reset()
         run_game(game)
-        # game.print_round_winner()
-        # game.print_player_scores()
         
         boolean_string = input('Do you want to play another round? '
                                'True or False: ')

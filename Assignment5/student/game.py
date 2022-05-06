@@ -147,7 +147,7 @@ class Game:
         :return: None
         """
         for i in range(len(self.__heaps)):
-            self.__heaps[i].current_size = self.__heaps[i].initial_size
+            self.__heaps[i].reset()
         self.__turn_index = 0
 
     def increment_player_score(self, player_index):
