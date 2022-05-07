@@ -116,7 +116,7 @@ class SolarSystem:
         :rtype:
         :param:
         :type:
-        """
+        """        
         p_min = self.planets[0].name
         d_min = self.planets[0].distance
         for i in range(1, len(self.planets)):
@@ -140,3 +140,13 @@ class SolarSystem:
                 d_max = self.planets[i].distance
                 p_max = self.planets[i].name
         return p_max
+
+    def __str__(self):
+        """
+        Returns name of sun
+        :return: name of the sun
+        :rtype: string
+        :param:
+        :type:
+        """
+        return self.the_sun

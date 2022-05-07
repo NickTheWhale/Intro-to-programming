@@ -250,3 +250,33 @@ class Planet:
         :type:
         """
         return 2 * math.pi * self.radius
+    
+    def __str__(self):
+        """
+        Returns name of planet
+        :return: name of the planet
+        :rtype: string
+        :param:
+        :type:
+        """
+        return self.name
+    
+    def __lt__(self, other_planet):
+        """
+        Compares radius to other_planet.distance
+        :return: radius < other_planet
+        :rtype: bool
+        :param:
+        :type:
+        """
+        return self.distance < other_planet.distance
+    
+    def __gt__(self, other_planet):
+        """
+        Compares radius to other_planet.distance
+        :return: radius > other_planet
+        :rtype: bool
+        :param:
+        :type:
+        """
+        return self.distance > other_planet.distance

@@ -96,11 +96,11 @@ def main():
     
     
     
-    """                  my testing stuff                   """
+    """                    testing stuff                   """
     
     
-    print(f'farthest: {ss.get_farthest()}')
-    print(f'closest: {ss.get_nearest()}')
+    # print(f'farthest: {ss.get_farthest()}')
+    # print(f'closest: {ss.get_nearest()}')
     
     # ss.show_planets()
 
