@@ -1,1 +1,0 @@
-ss.show_planets()
