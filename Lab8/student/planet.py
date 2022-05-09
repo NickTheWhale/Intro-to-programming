@@ -23,7 +23,7 @@ class Planet:
     The planet object represents a planet in the solar system.
     author(s): Donna Gavin
     """
-    def __init__(self, i_name, i_radius, i_mass, i_dist, i_num_moons):
+    def __init__(self, i_name, i_radius, i_mass, i_dist, i_moons):
         """
         Default Constructor
         :param i_name: Name of the planet
@@ -41,7 +41,7 @@ class Planet:
         self.__radius = i_radius
         self.__mass = i_mass
         self.__distance = i_dist
-        self.__num_moons = i_num_moons
+        self.__num_moons = i_moons
         self.__moon_list = []
 
         # DO_03: Add the following attributes (variables) for the Planet class,
@@ -88,7 +88,7 @@ class Planet:
         return self.__radius
 
     @radius.setter
-    def radius(self, x):
+    def radius(self, new_radius):
         """
         Setter (mutator) for the planet radius
         :param radius: New planet name
@@ -96,7 +96,7 @@ class Planet:
         :rtype:
         :type:
         """
-        self.__radius = x
+        self.__radius = new_radius
 
     @property
     def mass(self):
@@ -110,7 +110,7 @@ class Planet:
         return self.__mass
 
     @mass.setter
-    def mass(self, x):
+    def mass(self, new_mass):
         """
         Setter (mutator) for the planet mass
         :param mass: New planet mass
@@ -118,7 +118,7 @@ class Planet:
         :rtype:
         :type:
         """
-        self.__mass = x
+        self.__mass = new_mass
 
     @property
     def distance(self):
@@ -132,7 +132,7 @@ class Planet:
         return self.__distance
 
     @distance.setter
-    def distance(self, x):
+    def distance(self, new_distance):
         """
         Setter (mutator) for the planet distance from the sun
         :param distance: New planet distance
@@ -140,7 +140,7 @@ class Planet:
         :rtype:
         :type:
         """
-        self.__distance = x
+        self.__distance = new_distance
 
     @property
     def num_moons(self):
@@ -154,7 +154,7 @@ class Planet:
         return self.__num_moons
 
     @num_moons.setter
-    def num_moons(self, x):
+    def num_moons(self, planet_num_moons):
         """
         Setter (mutator) for the planet number of moons
         :param num_moons: New planet number of moons
@@ -162,7 +162,7 @@ class Planet:
         :rtype:
         :type:
         """
-        self.__num_moons = x
+        self.__num_moons = planet_num_moons
 
     @property
     def moon_list(self):

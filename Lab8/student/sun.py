@@ -137,6 +137,3 @@ class Sun:
         :type:
         """
         return self.name
-
-
-

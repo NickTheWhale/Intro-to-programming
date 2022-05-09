@@ -93,16 +93,6 @@ def main():
     print(f"Nearest planet to sun: {ss.get_nearest()}")
     print()
     print_table()
-    
-    
-    
-    """                    testing stuff                   """
-    
-    
-    # print(f'farthest: {ss.get_farthest()}')
-    # print(f'closest: {ss.get_nearest()}')
-    
-    # ss.show_planets()
 
 
 if __name__ == "__main__":

@@ -113,33 +113,17 @@ class SolarSystem:
         """
         Returns the
         :return:
-        :rtype:
-        :param:
-        :type:
-        """        
-        p_min = self.planets[0].name
-        d_min = self.planets[0].distance
-        for i in range(1, len(self.planets)):
-            if self.planets[i].distance < d_min:
-                d_min = self.planets[i].distance
-                p_min = self.planets[i].name
-        return p_min
+        :rtype
+        """
+        return min(self.planets)
 
     def get_farthest(self):
         """
         Returns the farthest planet
-        :return: farthest planet from sun
-        :rtype: String
-        :param:
-        :type:
+        :return:
+        :rtype:
         """
-        p_max = self.planets[0].name
-        d_max = self.planets[0].distance
-        for i in range(1, len(self.planets)):
-            if self.planets[i].distance > d_max:
-                d_max = self.planets[i].distance
-                p_max = self.planets[i].name
-        return p_max
+        return max(self.planets)
 
     def __str__(self):
         """
