@@ -31,7 +31,7 @@ class Sun:
         """
         Getter (accessor) for the name of the sun
         :return: name
-        :rtype: String
+        :rtype: string
         :param:
         :type:
         """
@@ -76,8 +76,8 @@ class Sun:
         Setter (mutator) for the name of the sun
         :param new_name: new name
         :type
-        :return: new_name
-        :rtype: String
+        :return: None
+        :rtype:
         """
         self.__name = new_name
 
@@ -94,7 +94,7 @@ class Sun:
 
     def get_volume(self):
         """
-        Calculates the volume of the sun as a sphere
+        returns the volume of the sun
         :return: volume
         :rtype: float
         :param:
@@ -105,7 +105,7 @@ class Sun:
 
     def get_surface_area(self):
         """
-        Calculates the surface of the sun as a sphere
+        returns the surface area of the sun
         :return: surface area
         :rtype: float
         :param:
@@ -116,7 +116,7 @@ class Sun:
 
     def get_density(self):
         """
-        Calculates the density of the sun as a sphere
+        returns density of the sun
         :return: density
         :rtype: float
         :param:
@@ -127,10 +127,7 @@ class Sun:
 
     def __str__(self):
         """
-        Returns the name of the sun as a string.
-        Assuming you have a sun object named mySun created with a name of
-        "Sun", this allows you to use the following format as input:
-        mySun.__str__()  # calls the __str__ method and prints "Sun"
+        returns the name of the sun
         :return: name of the sun
         :rtype: string
         :param:
